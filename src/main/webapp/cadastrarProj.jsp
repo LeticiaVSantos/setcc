@@ -3,6 +3,8 @@
 <html>
 <head>
 
+    <%@include file="WEB-INF/jspf/favicon.jspf" %>
+
     <%@include file="WEB-INF/jspf/cabecalho.jspf" %>
 
     <title>Cadastrar - Projeto</title>
