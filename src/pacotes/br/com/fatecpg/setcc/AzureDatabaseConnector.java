@@ -1,11 +1,12 @@
 package br.com.fatecpg.setcc;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import com.microsoft.sqlserver.jdbc.SQLServerDriver;
 
 public class AzureDatabaseConnector{
     private static final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
@@ -18,7 +19,7 @@ public class AzureDatabaseConnector{
                     "hostNameInCertificate=*.database.windows.net;" +
                     "loginTimeout=30;";
 
-    public static void execute(String SQL, Object[] parameters) throws Exception {
+    public static void execute(String SQL, @org.jetbrains.annotations.NotNull Object[] parameters) throws Exception {
         ArrayList<Object[]> list = new ArrayList<>();
         Class.forName(DRIVER).newInstance();
         Connection connection = DriverManager.getConnection(URL);
@@ -33,7 +34,7 @@ public class AzureDatabaseConnector{
         connection.close();
     }
 
-    public static ArrayList<Object[]> getQuery(String SQL, Object[] parameters) throws Exception {
+    public static ArrayList<Object[]> getQuery(String SQL, @NotNull Object[] parameters) throws Exception {
         ArrayList<Object[]> list = new ArrayList<>();
         Class.forName(DRIVER).newInstance();
         Connection connection = DriverManager.getConnection(URL);

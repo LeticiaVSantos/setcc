@@ -1,16 +1,19 @@
 package br.com.fatecpg.setcc;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.ArrayList;
 
 public class User {
     private static Object[] parameters;
-    private long id;
+    private Long id;
     private String name;
     private String login;
-    private long passwordHash;
+    private String passwordHash;
     private String tipoDeUsuario;
 
-    public User(long id, String name, String login, long passwordHash, String tipoDeUsuario) {
+    public User(Long id, String name, String login, String passwordHash, String tipoDeUsuario) {
         this.id = id;
         this.name = name;
         this.login = login;
@@ -18,11 +21,11 @@ public class User {
         this.tipoDeUsuario = tipoDeUsuario;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -42,11 +45,11 @@ public class User {
         this.login = login;
     }
 
-    public long getPasswordHash() {
+    public String getPasswordHash() {
         return passwordHash;
     }
 
-    public void setPasswordHash(long passwordHash) {
+    public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
     }
 
@@ -58,7 +61,8 @@ public class User {
         this.tipoDeUsuario = tipoDeUsuario;
     }
 
-    public static User getUser(String login, String pass) throws Exception {
+    @Nullable
+    public static User getUser(String login, @NotNull String pass) throws Exception {
         String SQL = "SELECT * FROM USUARIOS WHERE nm_login_email = ? AND nr_senha = ?";
         Object parameters[] = {login, pass.hashCode()};
         ArrayList<Object[]> list = AzureDatabaseConnector.getQuery(SQL, parameters);
@@ -68,10 +72,10 @@ public class User {
         } else {
             Object row[] = list.get(0);
             User u = new User (
-                    (long) row[1]
+                    (Long) row[1]
                     , (String) row[2]
                     , (String) row[3]
-                    , (long) row[4]
+                    , (String) row[4]
                     , (String) row[5]
             );
 
@@ -80,17 +84,17 @@ public class User {
     }
 
     public static ArrayList<User> getUsers() throws Exception {
-        String SQL = "SELECT * FROM USUARIOS";
+        String SQL = "SELECT * FROM DBO.USUARIOS";
         ArrayList<User> users = new ArrayList<>();
         ArrayList<Object[]> list = AzureDatabaseConnector.getQuery(SQL, new Object[]{});
 
         for (int i = 0; i < list.size(); i++) {
             Object row[] = list.get(i);
             User u = new User (
-                    (long) row[1]
+                    (Long) row[1]
                     , (String) row[2]
                     , (String) row[3]
-                    , (long) row[4]
+                    , (String) row[4]
                     , (String) row[5]
             );
 
@@ -102,7 +106,7 @@ public class User {
 
     }
 
-    public static void addUser(String name, String login, long passwordHash, String tipoDeUsuario) throws Exception {
+    public static void addUser(String name, String login, String passwordHash, String tipoDeUsuario) throws Exception {
         String SQL = "INSERT INTO USUARIOS VALUES (" +
                 ", ?" +
                 ", ?" +
@@ -114,7 +118,7 @@ public class User {
         AzureDatabaseConnector.execute(SQL, parameters);
     }
 
-    public static void removeUser(long id) throws Exception {
+    public static void removeUser(Long id) throws Exception {
         String SQL = "DELETE FROM USUARIOS WHERE ID_USUARIO = ?";
         Object parameters[] = {id};
 

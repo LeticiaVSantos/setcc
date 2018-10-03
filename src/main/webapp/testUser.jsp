@@ -10,6 +10,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 
+<html>
+<head>
+    <title>Add - SETCC</title>
+</head>
+<body>
 <fieldset>
     <legend>Novo Usuário</legend>
     <form>
@@ -33,7 +38,7 @@
         <th>Login/E-mail</th>
         <th>Tipo de Usuário</th>
         <th>Comando</th>
-    </tr
+    </tr>
     <% for(User u: User.getUsers()) { %>
     <tr>
         <td><%= u.getId() %></td>
