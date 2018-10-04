@@ -72,11 +72,11 @@ public class User {
         } else {
             Object row[] = list.get(0);
             User u = new User (
-                    (Long) row[1]
+                    new Long((int)row[0])
+                    , (String) row[1]
                     , (String) row[2]
                     , (String) row[3]
                     , (String) row[4]
-                    , (String) row[5]
             );
 
             return u;
@@ -88,14 +88,15 @@ public class User {
         ArrayList<User> users = new ArrayList<>();
         ArrayList<Object[]> list = AzureDatabaseConnector.getQuery(SQL, new Object[]{});
 
+//        User x  = new User (Long)
         for (int i = 0; i < list.size(); i++) {
             Object row[] = list.get(i);
             User u = new User (
-                    (Long) row[1]
+                    new Long((int)row[0])
+                    , (String) row[1]
                     , (String) row[2]
                     , (String) row[3]
                     , (String) row[4]
-                    , (String) row[5]
             );
 
             users.add(u);
