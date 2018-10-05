@@ -54,6 +54,15 @@
                             </div>
                         </td>
 
+                        <td>
+
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <a href="testUser.jsp" class="btn btn-primary" role="button">Cadastrar [TESTE]</a>
+                                </div>
+                            </div>
+                        </td>
+
                     </tr>
                 </table>
 

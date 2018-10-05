@@ -109,7 +109,7 @@ public class User {
 
     public static void addUser(String name, String login, String passwordHash, String tipoDeUsuario) throws Exception {
         String SQL = "INSERT INTO USUARIOS VALUES (" +
-                ", ?" +
+                " ?" +
                 ", ?" +
                 ", ?" +
                 ", ?" +
