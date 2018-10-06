@@ -46,78 +46,78 @@
     <title>Cadastro - Usuários</title>
 </head>
 <body>
-<% if (session.getAttribute("user") == null) { %>
-    <center><a href="home.jsp"><img src="Imagens/erro/tenor-you-shouldnt-have-come-here.gif" alt="EN: You Shouldn't Have Come Here"></a></center>
-<% } else { %>
-    <%@include file="WEB-INF/jspf/menu.jspf" %>
+    <% if (session.getAttribute("user") == null) { %>
+        <center><a href="home.jsp"><img src="Imagens/erro/tenor-you-shouldnt-have-come-here.gif" alt="EN: You Shouldn't Have Come Here"></a></center>
+    <% } else { %>
+        <%@include file="WEB-INF/jspf/menu.jspf" %>
 
-    <br>
-    <div align="center">
-        <div class="card" style="width: 60rem;">
-            <form>
-
-                <div class="form-group col-md-5">
-                    <label>Nome</label>
-                    <input required type="text" name="name" class="form-control"  placeholder="Insira o nome do usuário">
-                </div>
-
-                <div class="form-group col-md-5">
-                    <label>Endereço de email</label>
-                    <input required type="email" name="email" class="form-control" placeholder="Insira o email do usuário">
-                </div>
-
-                <div class="form-group col-md-5">
-                    <label>Senha</label>
-                    <input required type="password" name="pass" class="form-control" placeholder="Insira a senha">
-                </div>
-
-                <div class="form-group col-md-5">
-                    <label>Usuário</label>
-                    <select required name="tipo" class="form-control">
-                        <option value="Administrador" selected>Administrador</option>
-                        <option value="Professor">Professor</option>
-                        <option value="Aluno">Aluno</option>
-                    </select>
-                </div>
-
-                <input type="submit" name="formNewUser" value="add" class="btn btn-success"/>
-
-                <br/>
-
-            </form>
-        </div>
-    </div>
-
-    <hr>
-    <table class="table table-hover" >
-        <thead>
-        <tr class="table-active">
-            <th scope="col">ID</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Login/E-mail</th>
-            <th scope="col">Tipo de Usuário</th>
-            <th scope="col">Apagar</th>
-        </tr>
-        </thead>
-        <% for(User u: User.getUsers()) { %>
-        <tbody>
-        <tr>
-            <td><%= u.getId() %></td>
-            <td><%= u.getName() %></td>
-            <td><%= u.getLogin() %></td>
-            <td><%= u.getTipoDeUsuario() %></td>
-            <td>
+        <br>
+        <div align="center">
+            <div class="card" style="width: 60rem;">
                 <form>
-                    <input type="hidden" name="idRM" value="<%= u.getId() %>"/>
-                    <input type="submit" name="formDeleteUser" value="Remover" class="btn btn-danger"/>
-                </form>
-            </td>
-        </tr>
-        <% } %>
-        </tbody>
-    </table>
 
-    <br/>
-<% } %>
+                    <div class="form-group col-md-5">
+                        <label>Nome</label>
+                        <input required type="text" name="name" class="form-control"  placeholder="Insira o nome do usuário">
+                    </div>
+
+                    <div class="form-group col-md-5">
+                        <label>Endereço de email</label>
+                        <input required type="email" name="email" class="form-control" placeholder="Insira o email do usuário">
+                    </div>
+
+                    <div class="form-group col-md-5">
+                        <label>Senha</label>
+                        <input required type="password" name="pass" class="form-control" placeholder="Insira a senha">
+                    </div>
+
+                    <div class="form-group col-md-5">
+                        <label>Usuário</label>
+                        <select required name="tipo" class="form-control">
+                            <option value="Administrador" selected>Administrador</option>
+                            <option value="Professor">Professor</option>
+                            <option value="Aluno">Aluno</option>
+                        </select>
+                    </div>
+
+                    <input type="submit" name="formNewUser" value="add" class="btn btn-success"/>
+
+                    <br/>
+
+                </form>
+            </div>
+        </div>
+
+        <hr>
+        <table class="table table-hover" >
+            <thead>
+            <tr class="table-active">
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Login/E-mail</th>
+                <th scope="col">Tipo de Usuário</th>
+                <th scope="col">Apagar</th>
+            </tr>
+            </thead>
+            <% for(User u: User.getUsers()) { %>
+            <tbody>
+            <tr>
+                <td><%= u.getId() %></td>
+                <td><%= u.getName() %></td>
+                <td><%= u.getLogin() %></td>
+                <td><%= u.getTipoDeUsuario() %></td>
+                <td>
+                    <form>
+                        <input type="hidden" name="idRM" value="<%= u.getId() %>"/>
+                        <input type="submit" name="formDeleteUser" value="Remover" class="btn btn-danger"/>
+                    </form>
+                </td>
+            </tr>
+            <% } %>
+            </tbody>
+        </table>
+
+        <br/>
+    <% } %>
 </body>
 </html>
