@@ -31,6 +31,7 @@
 <%}%>
 
 <%if(session.getAttribute("user") == null){%>
+<br/>
     <center>
         <div class="card" style="width: 40rem;">
             <div class="card-body">
@@ -67,10 +68,12 @@
                                     </div>
                                 </div>
                             </td>--%>
+
                         </tr>
                     </table>
 
-                    <a href="#"> Esqueceu sua senha?</a>
+                    <a href="#"> Esqueceu sua senha?</a><br/>
+                    <a href="#"> Cadastre-se</a>
 
                 </form>
             </div>
@@ -103,25 +106,31 @@
                     <a class="nav-link" href="<%=path%>/home.jsp">Home</a>
                 </li>
 
+                <%if(user.getTipoDeUsuario().equals("Aluno")){%>
                 <li class="nav-item">
                     <a class="nav-link" href="<%=path%>/cadastrarProj.jsp">Cadastrar Projeto</a>
                 </li>
+                <%}%>
 
+                <%if(user.getTipoDeUsuario().equals("Administrador")){%>
                 <li class="nav-item">
                     <a class="nav-link" href="<%=path%>/cadastroUser.jsp">Cadastrar Usuário</a>
                 </li>
+                <%}%>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="<%=path%>/testUser.jsp">Cadastrar [TESTE]</a>
+                </li>
 
             </ul>
 
         </div>
     </nav>
 
-<div class="container-fluid">
+<div>
     <form>
-        <hr/>
-        <center>Bem Vindo, <%= user.getName() %> [<%= user.getTipoDeUsuario()%>]
-            <input type="submit" name="formLogoff" value="Sair" class="btn btn-light"/></center><hr/>
+        <center>Bem vindo(a), <%= user.getName() %> [<%= user.getTipoDeUsuario()%>]
+            <input type="submit" name="formLogoff" value="Sair" class="btn btn-primary"/></center>
     </form>
 </div>
 <%}%>

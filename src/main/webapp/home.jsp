@@ -13,13 +13,6 @@
 <body>
 
     <%@include file="WEB-INF/jspf/menu.jspf" %>
-    <% if (session.getAttribute("user") != null) { %>
-        <hr>
-        <div class="form-group row">
-            <div class="col-sm-10">
-                <a href="testUser.jsp" class="btn btn-primary" role="button">Cadastrar [TESTE]</a>
-            </div>
-        </div>
-    <% } %>
+
 </body>
 </html>

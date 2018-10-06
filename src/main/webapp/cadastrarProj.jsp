@@ -14,25 +14,23 @@
     <%@include file="WEB-INF/jspf/menu.jspf" %>
 
     <br>
-    <br>
-    <br>
     <center>
         <div class="card" style="width: 60rem;">
             <form>
 
                 <div class="form-group col-md-5">
-                    <label for="exampleInputProjeto">Projeto</label>
-                    <input type="text" class="form-control" id="exampleInputProjeto" placeholder="projeto">
+                    <label for="exampleInputProjeto">Tema do Projeto</label>
+                    <input type="text" class="form-control" id="exampleInputProjeto" placeholder="Insira o tema do projeto">
                 </div>
 
                 <div class="form-group col-md-5">
-                    <label for="exampleInputAluno">Aluno</label>
-                    <input type="text" class="form-control" id="exampleInputAluno" placeholder="aluno">
+                    <label for="exampleInputAluno">Integrantes</label>
+                    <input type="text" class="form-control" id="exampleInputAluno" placeholder="Insira os integrantes">
                 </div>
 
                 <div class="form-group col-md-5">
                     <label for="exampleInputOrientador">Professor Orientador</label>
-                    <input type="text" class="form-control" id="exampleInputOrientador" placeholder="orientador">
+                    <input type="text" class="form-control" id="exampleInputOrientador" placeholder="Insira o orientador do projeto">
                 </div>
 
                 <div class="form-group col-md-5">
@@ -50,6 +48,7 @@
             </form>
         </div>
     </center>
+    <br/>
 
 </body>
 </html>
