@@ -22,7 +22,7 @@
 
     if(request.getParameter("formLogoff") != null){
         session.removeAttribute("user");
-        response.sendRedirect(request.getRequestURI());
+        response.sendRedirect(path + "/home.jsp");
     }
 %>
 
