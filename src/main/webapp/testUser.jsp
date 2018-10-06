@@ -13,8 +13,8 @@
 
     if (request.getParameter("formDeleteUser") != null) {
         try {
-            long id = Long.parseLong(request.getParameter("id"));
-            User.removeUser(id);
+            long idRM = Long.parseLong(request.getParameter("idRM"));
+            User.removeUser(idRM);
             response.sendRedirect(request.getRequestURI());
         } catch (Exception e) {
             error = e.getMessage();
@@ -73,7 +73,7 @@
                 <th scope="col">Nome</th>
                 <th scope="col">Login/E-mail</th>
                 <th scope="col">Tipo de Usuário</th>
-                <th scope="col">Comando</th>
+                <th scope="col">Apagar</th>
             </tr>
         </thead>
         <% for(User u: User.getUsers()) { %>
@@ -85,7 +85,7 @@
                     <td><%= u.getTipoDeUsuario() %></td>
                     <td>
                         <form>
-                            <input type="hidden" name="id" value="<%= u.getId() %>"/>
+                            <input type="hidden" name="idRM" value="<%= u.getId() %>"/>
                             <input type="submit" name="formDeleteUser" value="Remover"/>
                         </form>
                     </td>
