@@ -63,7 +63,7 @@ public class User {
 
     @Nullable
     public static User getUser(String login, @NotNull String pass) throws Exception {
-        String SQL = "SELECT * FROM dbo.usuarios WHERE nm_login_email = ? AND nr_senha = ?";
+        String SQL = "SELECT * FROM teste.users WHERE nm_email_login = ? AND nr_senha_user = ?";
         Object parameters[] = {login, pass.hashCode()};
         ArrayList<Object[]> list = AzureDatabaseConnector.getQuery(SQL, parameters);
 
@@ -84,7 +84,7 @@ public class User {
     }
 
     public static ArrayList<User> getUsers() throws Exception {
-        String SQL = "SELECT * FROM dbo.usuarios";
+        String SQL = "SELECT * FROM teste.users";
         ArrayList<User> users = new ArrayList<>();
         ArrayList<Object[]> list = AzureDatabaseConnector.getQuery(SQL, new Object[]{});
 
@@ -108,7 +108,7 @@ public class User {
     }
 
     public static void addUser(String name, String login, String passwordHash, String tipoDeUsuario) throws Exception {
-        String SQL = "INSERT INTO dbo.usuarios VALUES (" +
+        String SQL = "INSERT INTO teste.users VALUES (" +
                 " ?" +
                 ", ?" +
                 ", ?" +
@@ -120,18 +120,18 @@ public class User {
     }
 
     public static void altUser(Long id, String name, String login, String tipoDeUsuario) throws Exception {
-        String SQL = "UPDATE dbo.usuarios SET " +
-                "nm_usuario = '?'" +
-                ", nm_login_email = '?'" +
-                ", tp_usuario = '?'" +
-                "WHERE id_usuario = " + id;
+        String SQL = "UPDATE teste.users SET " +
+                "nm_user = '?'" +
+                ", nm_email_login = '?'" +
+                ", tp_user = '?'" +
+                "WHERE id_user = " + id;
         Object parameters[] = {name, login, tipoDeUsuario};
 
         AzureDatabaseConnector.execute(SQL, parameters);
     }
 
     public static void removeUser(Long id) throws Exception {
-        String SQL = "DELETE FROM dbo.usuarios WHERE ID_USUARIO = ?";
+        String SQL = "DELETE FROM teste.users WHERE id_user = ?";
         Object parameters[] = {id};
 
         AzureDatabaseConnector.execute(SQL, parameters);
