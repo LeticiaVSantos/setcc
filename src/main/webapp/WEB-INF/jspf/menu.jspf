@@ -118,9 +118,6 @@
                 </li>
                 <%}%>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="<%=path%>/testUser.jsp">Cadastrar [TESTE]</a>
-                </li>
 
             </ul>
 
@@ -129,8 +126,8 @@
 
 <div>
     <form>
-        <center>Bem vindo(a), <%= user.getName() %> [<%= user.getTipoDeUsuario()%>]
-            <input type="submit" name="formLogoff" value="Sair" class="btn btn-primary"/></center>
+        <div align="center">Bem vindo(a), <%= user.getName() %> [<%= user.getTipoDeUsuario()%>]
+            <input type="submit" name="formLogoff" value="Sair" class="btn btn-primary"/><div/>
     </form>
 </div>
 <%}%>

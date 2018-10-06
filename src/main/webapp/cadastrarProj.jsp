@@ -19,23 +19,23 @@
             <form>
 
                 <div class="form-group col-md-5">
-                    <label for="exampleInputProjeto">Tema do Projeto</label>
-                    <input type="text" class="form-control" id="exampleInputProjeto" placeholder="Insira o tema do projeto">
+                    <label>Tema do Projeto</label>
+                    <input type="text" class="form-control" placeholder="Insira o tema do projeto">
                 </div>
 
                 <div class="form-group col-md-5">
-                    <label for="exampleInputAluno">Integrantes</label>
-                    <input type="text" class="form-control" id="exampleInputAluno" placeholder="Insira os integrantes">
+                    <label>Integrantes</label>
+                    <input type="text" class="form-control"placeholder="Insira os integrantes">
                 </div>
 
                 <div class="form-group col-md-5">
-                    <label for="exampleInputOrientador">Professor Orientador</label>
-                    <input type="text" class="form-control" id="exampleInputOrientador" placeholder="Insira o orientador do projeto">
+                    <label>Professor Orientador</label>
+                    <input type="text" class="form-control" placeholder="Insira o orientador do projeto">
                 </div>
 
                 <div class="form-group col-md-5">
-                    <label for="inputUser">Curso</label>
-                    <select id="inputUser" class="form-control">
+                    <label>Curso</label>
+                    <select class="form-control">
                         <option selected>Análise e Desenvolvimento de Sistemas</option>
                         <option>Comércio Exterior</option>
                         <option>Gestão Empresarial</option>
