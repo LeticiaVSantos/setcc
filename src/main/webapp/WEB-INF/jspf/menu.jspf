@@ -108,16 +108,21 @@
 
                 <%if(user.getTipoDeUsuario().equals("Aluno")){%>
                 <li class="nav-item">
-                    <a class="nav-link" href="<%=path%>/cadastrarProj.jsp">Cadastrar Projeto</a>
+                    <a class="nav-link" href="<%=path%>/roles/student/cadastrarProj.jsp">Cadastrar Projeto</a>
                 </li>
                 <%}%>
 
                 <%if(user.getTipoDeUsuario().equals("Administrador")){%>
                 <li class="nav-item">
-                    <a class="nav-link" href="<%=path%>/cadastroUser.jsp">Cadastrar Usuário</a>
+                    <a class="nav-link" href="<%=path%>/roles/adm/cadastroUser.jsp">Cadastrar Usuário</a>
                 </li>
                 <%}%>
 
+                <%if(user.getTipoDeUsuario().equals("Administrador")){%>
+                <li class="nav-item">
+                    <a class="nav-link" href="<%=path%>/roles/adm/listaUser.jsp">Listar Usuários</a>
+                </li>
+                <%}%>
 
             </ul>
 

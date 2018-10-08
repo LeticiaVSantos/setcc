@@ -13,6 +13,10 @@ public class User {
     private String passwordHash;
     private String tipoDeUsuario;
 
+    public User() {
+
+    }
+
     public User(Long id, String name, String login, String passwordHash, String tipoDeUsuario) {
         this.id = id;
         this.name = name;
