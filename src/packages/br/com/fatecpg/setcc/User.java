@@ -6,7 +6,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 
 public class User {
-    private static Object[] parameters;
     private Long id;
     private String name;
     private String login;
@@ -92,7 +91,6 @@ public class User {
         ArrayList<User> users = new ArrayList<>();
         ArrayList<Object[]> list = AzureDatabaseConnector.getQuery(SQL, new Object[]{});
 
-//        User x  = new User (Long)
         for (int i = 0; i < list.size(); i++) {
             Object row[] = list.get(i);
             User u = new User (

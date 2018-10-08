@@ -124,6 +124,12 @@
                 </li>
                 <%}%>
 
+                <%if(user.getTipoDeUsuario().equals("Administrador")){%>
+                <li class="nav-item">
+                    <a class="nav-link" href="<%=path%>/roles/adm/cadastroPeriod.jsp">Cadastrar Período</a>
+                </li>
+                <%}%>
+
             </ul>
 
         </div>
