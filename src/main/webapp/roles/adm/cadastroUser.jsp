@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="br.com.fatecpg.setcc.User" %>
+<%@ page import="br.com.fatecpg.setcc.Student" %>
+<%@ page import="br.com.fatecpg.setcc.Period" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
@@ -17,11 +19,29 @@
         String login = request.getParameter("email");
         String passwordHash = String.valueOf(request.getParameter("pass").hashCode());
         String tipoDeUsuario = request.getParameter("tipo");
-
-
-
+        String alunoRA = null; if (request.getParameter("alunoRA") != null) alunoRA = request.getParameter("alunoRA");
+        String professorCD = null; if (request.getParameter("professorCD") != null) professorCD = request.getParameter("professorCD");
+        Long periodo = null; if (request.getParameter("periodo") != null) periodo = Long.parseLong(request.getParameter("periodo"));
         try {
             User.addUser(name, login, passwordHash, tipoDeUsuario);
+
+            User verificaTipo = new User();
+            if (request.getParameter("papel") != null) verificaTipo.setTipoDeUsuario(request.getParameter("papel"));
+
+            if (verificaTipo.getTipoDeUsuario().equals("Aluno")) {
+                try {
+                    Student.addStudent(alunoRA, Long.parseLong(User.returnUserID(login).toString()), periodo);
+                } catch (Exception e) {
+                    error = e.getMessage();
+                }
+            } else if (verificaTipo.getTipoDeUsuario().equals("Professor")){
+                try {
+
+                } catch (Exception e) {
+                    error = e.getMessage();
+                }
+            }
+
             response.sendRedirect(request.getRequestURI());
         } catch (Exception e) {
             error = e.getMessage();
@@ -82,9 +102,15 @@
 
                     <% if (u.getTipoDeUsuario().equals("Aluno")) { %>
                     RA Aluno: <div class="form-group col-md-5"><input required type="text" name="alunoRA" class="form-control" placeholder="1290581822013"></div>
+                    <legend>Período: </legend>
+                    <select required name="periodo" class="form-control">
+                    <% for (Period p: Period.getPeriods()) { %>
+                        <option value="<%=p.getId()%>"><%=p.getNamePeriod()%></option>
+                    <% } %>
+                    </select>
                     <% } %>
                     <% if (u.getTipoDeUsuario().equals("Professor")) { %>
-                    RA Professor: <div class="form-group col-md-5"><input required type="text" name="professorRA" class="form-control" placeholder="1290581822013"></div>
+                    RA Professor: <div class="form-group col-md-5"><input required type="text" name="professorCD" class="form-control" placeholder="1290581822013"></div>
                     <% } %>
 
                     <input type="hidden" name="tipo" value="<%=u.getTipoDeUsuario()%>">

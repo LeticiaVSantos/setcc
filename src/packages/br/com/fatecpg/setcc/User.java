@@ -16,6 +16,10 @@ public class User {
 
     }
 
+    public User(Long id) {
+        this.id = id;
+    }
+
     public User(Long id, String name, String login, String passwordHash, String tipoDeUsuario) {
         this.id = id;
         this.name = name;
@@ -137,5 +141,17 @@ public class User {
         Object parameters[] = {id};
 
         AzureDatabaseConnector.execute(SQL, parameters);
+    }
+
+    public static User returnUserID (String login) throws Exception {
+        String SQL = "SELECT id_user FROM teste.users WHERE nm_email_login = '" + login + "'";
+        ArrayList<Object[]> list = AzureDatabaseConnector.getQuery(SQL, new Object[]{});
+
+        Object row[] = list.get(0);
+        User u = new User (
+                new Long((int)row[0])
+        );
+
+        return u;
     }
 }
