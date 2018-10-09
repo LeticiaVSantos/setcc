@@ -49,6 +49,7 @@
                 <th scope="col">Login/E-mail</th>
                 <th scope="col">Tipo de Usuário</th>
                 <th scope="col">Apagar</th>
+                <th scope="col">Alterar</th>
             </tr>
             </thead>
             <% for(User u: User.getUsers()) { %>
@@ -62,6 +63,12 @@
                     <form>
                         <input type="hidden" name="idRM" value="<%= u.getId() %>"/>
                         <input type="submit" name="formDeleteUser" value="Remover" class="btn btn-danger"/>
+                    </form>
+                </td>
+                <td>
+                    <form>
+                        <input type="hidden" name="idRM" value="<%= u.getId() %>"/>
+                        <a href="alterarUser.jsp" class="btn btn-primary">Alterar</a>
                     </form>
                 </td>
             </tr>
