@@ -127,11 +127,11 @@ public class User {
 
     public static void altUser(Long id, String name, String login, String tipoDeUsuario) throws Exception {
         String SQL = "UPDATE teste.users SET " +
-                "nm_user = '?'" +
-                ", nm_email_login = '?'" +
-                ", tp_user = '?'" +
-                "WHERE id_user = " + id;
-        Object parameters[] = {name, login, tipoDeUsuario};
+                "nm_user = '" + name +
+                "', nm_email_login = '" + login +
+                "', tp_user = '" + tipoDeUsuario +
+                "' WHERE id_user = " + id;
+        Object parameters[] = {};
 
         AzureDatabaseConnector.execute(SQL, parameters);
     }

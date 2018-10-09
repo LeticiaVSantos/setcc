@@ -66,9 +66,11 @@
                     </form>
                 </td>
                 <td>
-                    <form>
-                        <input type="hidden" name="idRM" value="<%= u.getId() %>"/>
-                        <a href="alterarUser.jsp" class="btn btn-primary">Alterar</a>
+                    <form action="alterarUser.jsp">
+                        <input type="hidden" name="idALT" value="<%= u.getId() %>"/>
+                        <input type="hidden" name="nomeALT" value="<%= u.getName() %>"/>
+                        <input type="hidden" name="loginALT" value="<%= u.getLogin() %>"/>
+                        <input  type="submit" value="Alterar" class="btn btn-primary"/>
                     </form>
                 </td>
             </tr>

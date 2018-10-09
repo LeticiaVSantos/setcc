@@ -6,7 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="br.com.fatecpg.setcc.User" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
@@ -14,18 +13,17 @@
     String error = null;
 
     if (request.getParameter("formUpdateUser") != null) {
+        long id = Long.parseLong(request.getParameter("id"));
         String name = request.getParameter("name");
         String login = request.getParameter("email");
-        String passwordHash = String.valueOf(request.getParameter("pass").hashCode());
+        String papel = request.getParameter("papel");
 
         try {
-            long idRM = Long.parseLong(request.getParameter("idRM"));
-            User.altUser(idRM, name, login, passwordHash);
+            User.altUser(id, name, login, papel);
 
-            response.sendRedirect(request.getRequestURI());
+            response.sendRedirect(caminho + "/roles/adm/listaUser.jsp");
         } catch (Exception e) {
             error = e.getMessage();
-
         }
     }
 
@@ -49,28 +47,29 @@
     <div align="center">
         <div class="card" style="width: 60rem;">
             <form>
-                <% long idRM = Long.parseLong(request.getParameter("idRM"));
-                User u = User.getId(idRM); %>
-
-                <tr>
+                <tr></tr>
                     <div class="form-group col-md-5">
                         <label>Nome</label>
-                        <input required type="text" name="name" class="form-control" value="<%=u.getName()%>">
+                        <input required type="text" name="name" class="form-control" value="<%=request.getParameter("nomeALT")%>">
                     </div>
 
                     <div class="form-group col-md-5">
                         <label>Endereço de email</label>
-                        <input required type="email" name="email" class="form-control" value="<%=u.getLogin()%>">
+                        <input required type="email" name="email" class="form-control" value="<%=request.getParameter("loginALT")%>">
                     </div>
 
                     <div class="form-group col-md-5">
-                        <label>Senha</label>
-                        <input required type="password" name="pass" class="form-control" value="<%=u.getPasswordHash()%>">
+                        <label>Tipo de Usuário</label>
+                        <select required name="papel" class="form-control">
+                            <option value="Administrador">Administrador</option>
+                            <option value="Professor">Professor</option>
+                            <option value="Aluno">Aluno</option>
+                        </select>
                     </div>
 
-                    <input type="hidden" name="id" value="<%= u.getId() %>">
+                    <input type="hidden" name="id" value="<%=request.getParameter("idALT")%>">
 
-                    <input type="submit" name="formUpdateUser" value="Alterar"/>
+                    <input type="submit" name="formUpdateUser" value="Alterar" class="btn btn-primary"/>
 
                 <br/>
 
