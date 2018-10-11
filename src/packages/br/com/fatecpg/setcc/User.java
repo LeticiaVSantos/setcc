@@ -125,6 +125,18 @@ public class User {
         AzureDatabaseConnector.execute(SQL, parameters);
     }
 
+    public static User returnUserID (String login) throws Exception {
+        String SQL = "SELECT id_user FROM teste.users WHERE nm_email_login = '" + login + "'";
+        ArrayList<Object[]> list = AzureDatabaseConnector.getQuery(SQL, new Object[]{});
+
+        Object row[] = list.get(0);
+        User u = new User (
+                new Long((int)row[0])
+        );
+
+        return u;
+    }
+
     public static void altUser(Long id, String name, String login, String tipoDeUsuario) throws Exception {
         String SQL = "UPDATE teste.users SET " +
                 "nm_user = '" + name +
@@ -138,20 +150,10 @@ public class User {
 
     public static void removeUser(Long id) throws Exception {
         String SQL = "DELETE FROM teste.users WHERE id_user = ?";
+
         Object parameters[] = {id};
 
         AzureDatabaseConnector.execute(SQL, parameters);
     }
 
-    public static User returnUserID (String login) throws Exception {
-        String SQL = "SELECT id_user FROM teste.users WHERE nm_email_login = '" + login + "'";
-        ArrayList<Object[]> list = AzureDatabaseConnector.getQuery(SQL, new Object[]{});
-
-        Object row[] = list.get(0);
-        User u = new User (
-                new Long((int)row[0])
-        );
-
-        return u;
-    }
 }

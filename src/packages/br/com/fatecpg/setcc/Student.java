@@ -71,19 +71,19 @@ public class Student {
 
     public static void addStudent(String ra, Long idUser, Long idPeriod) throws Exception {
         String SQL = "INSERT INTO teste.students VALUES (" +
-                " '?'" +
-                ", ?" +
+                " '" + ra +
+                "', ?" +
                 ", ?)";
 
-        Object parameters[] = {ra, idUser, idPeriod};
+        Object parameters[] = {idUser, idPeriod};
 
         AzureDatabaseConnector.execute(SQL, parameters);
     }
 
     public static void altStudent(Long id, String ra) throws Exception {
         String SQL = "UPDATE teste.students SET " +
-                "cd_ra = '?'" +
-                "WHERE id_student = " + id;
+                "cd_ra = '" + ra +
+                "' WHERE id_student = " + id;
 
         Object parameters[] = {ra};
 
@@ -91,7 +91,7 @@ public class Student {
     }
 
     public static void removeStudent(Long id) throws Exception {
-        String SQL = "DELETE FROM teste.students WHERE id_students = ?";
+        String SQL = "DELETE FROM teste.students WHERE id_user = ?";
 
         Object parameters[] = {id};
 

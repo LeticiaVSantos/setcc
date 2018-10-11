@@ -60,20 +60,28 @@ public class Professor {
 
     public static void addProfessor(String cdUnique, Long idUser) throws Exception {
         String SQL = "INSERT INTO teste.professors VALUES (" +
-                " '?'" +
-                ", ?)";
+                " '" + cdUnique +
+                "', ?)";
 
-        Object parameters[] = {cdUnique, idUser};
+        Object parameters[] = {idUser};
 
         AzureDatabaseConnector.execute(SQL, parameters);
     }
 
     public static void altProfessor(Long id, String cdUnique) throws Exception {
         String SQL = "UPDATE teste.professors SET " +
-                "cd_unique = '?'" +
-                "WHERE id_professor = " + id;
+                "cd_unique = '" + cdUnique +
+                "' WHERE id_professor = " + id;
 
         Object parameters[] = {cdUnique};
+
+        AzureDatabaseConnector.execute(SQL, parameters);
+    }
+
+    public static void removeProfessor(Long id) throws Exception {
+        String SQL = "DELETE FROM teste.professors WHERE id_user = ?";
+
+        Object parameters[] = {id};
 
         AzureDatabaseConnector.execute(SQL, parameters);
     }

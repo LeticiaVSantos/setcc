@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="br.com.fatecpg.setcc.User" %>
+<%@ page import="br.com.fatecpg.setcc.Student" %>
+<%@ page import="br.com.fatecpg.setcc.Professor" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
@@ -15,6 +17,9 @@
     if (request.getParameter("formDeleteUser") != null) {
         try {
             long idRM = Long.parseLong(request.getParameter("idRM"));
+            String papel = request.getParameter("papel");
+            if (papel.equals("Aluno")) Student.removeStudent(idRM);
+            if (papel.equals("Professor")) Professor.removeProfessor(idRM);
             User.removeUser(idRM);
             response.sendRedirect(request.getRequestURI());
         } catch (Exception e) {
@@ -62,6 +67,7 @@
                 <td>
                     <form>
                         <input type="hidden" name="idRM" value="<%= u.getId() %>"/>
+                        <input type="hidden" name="papel" value="<%= u.getTipoDeUsuario() %>"/>
                         <input type="submit" name="formDeleteUser" value="Remover" class="btn btn-danger"/>
                     </form>
                 </td>

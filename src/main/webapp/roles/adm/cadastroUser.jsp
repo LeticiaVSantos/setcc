@@ -5,9 +5,7 @@
   Time: 16:16
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page import="br.com.fatecpg.setcc.User" %>
-<%@ page import="br.com.fatecpg.setcc.Student" %>
-<%@ page import="br.com.fatecpg.setcc.Period" %>
+<%@ page import="br.com.fatecpg.setcc.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
@@ -25,18 +23,34 @@
         try {
             User.addUser(name, login, passwordHash, tipoDeUsuario);
 
-            User verificaTipo = new User();
-            if (request.getParameter("papel") != null) verificaTipo.setTipoDeUsuario(request.getParameter("papel"));
+            if (tipoDeUsuario.equals("Aluno")) {
 
-            if (verificaTipo.getTipoDeUsuario().equals("Aluno")) {
+                Long idUser = null;
+
+                for (User u: User.getUsers()){
+                    if (u.getLogin().equals(login)){
+                        idUser = Long.parseLong(u.getId().toString());
+                        break;
+                    }
+                }
+
                 try {
-                    Student.addStudent(alunoRA, Long.parseLong(User.returnUserID(login).toString()), periodo);
+                    Student.addStudent(alunoRA, idUser, periodo);
                 } catch (Exception e) {
                     error = e.getMessage();
                 }
-            } else if (verificaTipo.getTipoDeUsuario().equals("Professor")){
-                try {
+            } else if (tipoDeUsuario.equals("Professor")){
+                Long idUser = null;
 
+                for (User u: User.getUsers()){
+                    if (u.getLogin().equals(login)){
+                        idUser = Long.parseLong(u.getId().toString());
+                        break;
+                    }
+                }
+
+                try {
+                    Professor.addProfessor(professorCD, idUser);
                 } catch (Exception e) {
                     error = e.getMessage();
                 }

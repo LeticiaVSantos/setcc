@@ -58,8 +58,8 @@ public class Period {
 
     public static void altPeriod(Long id, String name) throws Exception {
         String SQL = "UPDATE teste.periods SET " +
-                "nm_period = '?'" +
-                "WHERE id_period = " + id;
+                "nm_period = '" + name +
+                "' WHERE id_period = " + id;
 
         Object parameters[] = {name};
 
