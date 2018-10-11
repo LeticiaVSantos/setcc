@@ -73,7 +73,7 @@
                     </table>
 
                     <a href="#"> Esqueceu sua senha?</a><br/>
-                    <a href="#"> Cadastre-se</a>
+                    <a href="<%=path%>/roles/guest/cadastroGuestUser.jsp"> Cadastre-se</a>
 
                 </form>
             </div>

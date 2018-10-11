@@ -26,20 +26,33 @@
 
                     <div class="form-group col-md-5">
                         <label>Tema do Projeto</label>
-                        <input type="text" class="form-control" placeholder="Insira o tema do projeto">
+                        <input type="text" class="form-control" name="nome" placeholder="Insira o tema do projeto">
                     </div>
 
                     <div class="form-group col-md-5">
                         <label>Integrantes</label>
-                        <input type="text" class="form-control"placeholder="Insira os integrantes">
+                        <% for (User u: User.getUsers()) { %>
+                        <% if (u.getTipoDeUsuario().equals("Aluno")) { %>
+                        <input type="checkbox" class="form-control" name="integrantes" value="<%=u.getId()%>"> <%=u.getName()%> <br>
+                        <% } %>
+                        <% } %>
                     </div>
 
                     <div class="form-group col-md-5">
                         <label>Professor Orientador</label>
-                        <input type="text" class="form-control" placeholder="Insira o orientador do projeto">
+                        <% for (User u: User.getUsers()) { %>
+                        <% if (u.getTipoDeUsuario().equals("Professor")) { %>
+                        <input type="radio" class="form-control" name="professor" value="<%=u.getId()%>"> <%=u.getName()%> <br>
+                        <% } %>
+                        <% } %>
                     </div>
 
                     <div class="form-group col-md-5">
+                        <label>PDF do TCC</label>
+                        <input type="file" class="form-control" name="pdfTCC">
+                    </div>
+
+                    <%--<div class="form-group col-md-5">
                         <label>Curso</label>
                         <select class="form-control">
                             <option selected>Análise e Desenvolvimento de Sistemas</option>
@@ -47,7 +60,7 @@
                             <option>Gestão Empresarial</option>
                             <option>Processos Químicos</option>
                         </select>
-                    </div>
+                    </div>--%>
 
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
 
