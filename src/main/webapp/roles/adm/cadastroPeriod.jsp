@@ -42,7 +42,7 @@
 
     <%@include file="/WEB-INF/jspf/cabecalho.jspf" %>
 
-    <title>Cadastro - Usuários</title>
+    <title>Cadastro - Períodos</title>
 </head>
 <body>
     <% if (session.getAttribute("user") == null) { %>
@@ -78,6 +78,7 @@
             <th scope="col">ID</th>
             <th scope="col">Período</th>
             <th scope="col">Apagar</th>
+            <th scope="col">Alterar</th>
         </tr>
         </thead>
         <% for(Period p: Period.getPeriods()) { %>
@@ -89,6 +90,13 @@
                 <form>
                     <input type="hidden" name="idRM" value="<%= p.getId() %>"/>
                     <input type="submit" name="formDeleteUser" value="Remover" class="btn btn-danger"/>
+                </form>
+            </td>
+            <td>
+                <form action="alterarPeriod.jsp">
+                    <input type="hidden" name="idALT" value="<%= p.getId() %>"/>
+                    <input type="hidden" name="nomePeriodALT" value="<%= p.getNamePeriod() %>"/>
+                    <input  type="submit" value="Alterar" class="btn btn-primary"/>
                 </form>
             </td>
         </tr>

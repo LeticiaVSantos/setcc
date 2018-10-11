@@ -61,7 +61,7 @@ public class Period {
                 "nm_period = '" + name +
                 "' WHERE id_period = " + id;
 
-        Object parameters[] = {name};
+        Object parameters[] = {};
 
         AzureDatabaseConnector.execute(SQL, parameters);
     }
