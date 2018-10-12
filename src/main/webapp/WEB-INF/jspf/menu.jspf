@@ -3,26 +3,13 @@
 
 <link href="css/css.css" rel="stylesheet"/>
 
-
 <%
     String path = request.getContextPath();
     String errorMessage = null;
 
-    if(request.getParameter("formLogin") != null){
-        String login = request.getParameter("login");
-        String pass = request.getParameter("passwordHash");
-        User u = User.getUser(login, pass);
-        if(u == null){
-            errorMessage = "Usuário e/ou senha inválido(s)";
-        }else{
-            session.setAttribute("user", u);
-            response.sendRedirect(request.getRequestURI());
-        }
-    }
-
     if(request.getParameter("formLogoff") != null){
         session.removeAttribute("user");
-        response.sendRedirect(path + "/home.jsp");
+        response.sendRedirect(path + "/login.jsp");
     }
 %>
 
@@ -30,58 +17,8 @@
     <script>alert ("<%= errorMessage %>");</script>
 <%}%>
 
-<%if(session.getAttribute("user") == null){%>
-<br/>
-    <center>
-        <div class="card" style="width: 40rem;">
-            <div class="card-body">
-                <form method="post">
-
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Login</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="login" placeholder="Login">
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Senha</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" name="passwordHash" placeholder="Senha">
-                        </div>
-                    </div>
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="form-group row">
-                                    <div class="col-sm-10">
-                                        <input type="submit" name="formLogin" value="Entrar" class="btn btn-primary" role="button"/>
-                                    </div>
-                                </div>
-                            </td>
-
-                            <%--<td>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-10">
-                                        <a href="<%=path%>/cadastroUser.jsp" class="btn btn-primary" role="button">Cadastrar</a>
-                                    </div>
-                                </div>
-                            </td>--%>
-
-                        </tr>
-                    </table>
-
-                    <a href="#"> Esqueceu sua senha?</a><br/>
-                    <a href="<%=path%>/roles/guest/cadastroGuestUser.jsp"> Cadastre-se</a>
-
-                </form>
-            </div>
-        </div>
-    </center>
-
-<%}else{%>
-<% User user = (User) session.getAttribute("user"); %>
+<%if(session.getAttribute("user") != null){%>
+    <% User user = (User) session.getAttribute("user"); %>
 
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
