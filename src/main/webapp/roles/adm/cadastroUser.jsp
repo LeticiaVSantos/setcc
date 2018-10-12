@@ -74,18 +74,24 @@
 </head>
 <body>
     <% if (session.getAttribute("user") == null) { %>
-        <center><a href="<%=caminho%>/home.jsp"><img src="<%=caminho%>/Imagens/erro/tenor-you-shouldnt-have-come-here.gif" alt="EN: You Shouldn't Have Come Here"></a></center>
+        <div align="center"><a href="<%=caminho%>/home.jsp"><img src="<%=caminho%>/Imagens/erro/tenor-you-shouldnt-have-come-here.gif" alt="EN: You Shouldn't Have Come Here"></a></div>
     <% } else { %>
         <%@include file="/WEB-INF/jspf/menu.jspf" %>
+
         <form action="<%=caminho%>/roles/adm/cadastroUser.jsp" method="post">
+            <div class="form-group col-md-5">
+
             <legend>Papel: </legend>
             <select required name="papel" class="form-control">
                 <option value="Administrador">Administrador</option>
                 <option value="Professor">Professor</option>
                 <option value="Aluno">Aluno</option>
             </select>
-            <input type="submit" value="OK">
+
+            </div>
+            <input type="submit" class="btn btn-primary" value="OK">
         </form>
+
         <br>
         <%
             User u = new User();
@@ -117,7 +123,7 @@
                     <% if (u.getTipoDeUsuario().equals("Aluno")) { %>
                     RA Aluno: <div class="form-group col-md-5"><input required type="text" name="alunoRA" class="form-control" placeholder="1290581822013"></div>
                     <legend>Período: </legend>
-                    <select required name="periodo" class="form-control">
+                    <select required name="periodo" class="form-control col-md-5">
                     <% for (Period p: Period.getPeriods()) { %>
                         <option value="<%=p.getId()%>"><%=p.getNamePeriod()%></option>
                     <% } %>

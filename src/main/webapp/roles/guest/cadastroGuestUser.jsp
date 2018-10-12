@@ -97,15 +97,19 @@
         <% if(error != null){ %>
         <script>alert ("<%= error %>");</script>
         <%}%>
-        <form action="<%=caminho%>/roles/guest/cadastroGuestUser.jsp" method="post">
+        <div align="center">
+        <div class="limiter">
+            <div style="background-image: url('/Imagens/bg-01.jpg')">
+        <form class="login100-form validate-form flex-sb flex-w col-md-5" action="<%=caminho%>/roles/guest/cadastroGuestUser.jsp" method="post">
             <legend>Papel: </legend>
-            <select required name="papel" class="form-control">
+            <select required name="papel" class="form-control col-md-5" >
                 <option value="Aluno">Aluno</option>
                 <option value="Professor">Professor</option>
             </select>
-            <input type="submit" value="OK">
+            <input type="submit" value="OK" class="btn btn-primary">
         </form>
         <br>
+
         <%
             User u = new User();
             if (request.getParameter("papel") != null) {
@@ -114,27 +118,27 @@
         %>
 
         <br>
-        <div align="center">
+
             <div class="card" style="width: 60rem;">
                 <form>
 
-                    <div class="form-group col-md-5">
+                    <div class="wrap-input100 validate-input col-md-5">
                         <label>Nome</label>
                         <input required type="text" name="name" class="form-control"  placeholder="Insira o nome do usuário">
                     </div>
 
-                    <div class="form-group col-md-5">
+                    <div class="wrap-input100 validate-input col-md-5">
                         <label>Endereço de email</label>
                         <input required type="email" name="email" class="form-control" placeholder="Insira o email do usuário">
                     </div>
 
-                    <div class="form-group col-md-5">
+                    <div class="wrap-input100 validate-input col-md-5">
                         <label>Senha</label>
                         <input required type="password" name="pass" class="form-control" placeholder="Insira a senha">
                     </div>
 
                     <% if (u.getTipoDeUsuario().equals("Aluno")) { %>
-                    RA Aluno: <div class="form-group col-md-5"><input required type="text" name="alunoRA" class="form-control" placeholder="1290581822013"></div>
+                    RA Aluno: <div class="wrap-input100 validate-input col-md-5"><input required type="text" name="alunoRA" class="form-control" placeholder="1290581822013"></div>
                     <legend>Período: </legend>
                     <select required name="periodo" class="form-control">
                     <% for (Period p: Period.getPeriods()) { %>
@@ -143,7 +147,7 @@
                     </select>
                     <% } %>
                     <% if (u.getTipoDeUsuario().equals("Professor")) { %>
-                    RA Professor: <div class="form-group col-md-5"><input required type="text" name="professorCD" class="form-control" placeholder="1290581822013"></div>
+                    RA Professor: <div class="wrap-input100 validate-input col-md-5"><input required type="text" name="professorCD" class="form-control" placeholder="1290581822013"></div>
                     <% } %>
 
                     <input type="hidden" name="tipo" value="<%=u.getTipoDeUsuario()%>">
@@ -153,11 +157,13 @@
 
                 </form>
             </div>
-        </div>
+
     <br>
     <% } %>
     <% } %>
 
-    <%@include file="/WEB-INF/jspf/footer.jspf" %>
+            </div>
+        </div>
+        </div>
 </body>
 </html>
