@@ -42,47 +42,58 @@
 </head>
 <body>
 <%if(session.getAttribute("user") == null){%>
-    <br/>
-    <center>
-        <div class="card" style="width: 40rem;">
-            <div class="card-body">
-                <form method="post">
+<div class="limiter">
+    <div class="container-login100" style="background-image: url('/Imagens/bg-01.jpg')">
+        <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+            <form class="login100-form validate-form flex-sb flex-w">
+					<span class="login100-form-title p-b-53">
+						Iniciar Sessão
+					</span>
 
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Login</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="login" placeholder="Login">
-                        </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Senha</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" name="passwordHash" placeholder="Senha">
-                        </div>
-                    </div>
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="form-group row">
-                                    <div class="col-sm-10">
-                                        <input type="submit" name="formLogin" value="Entrar" class="btn btn-primary" role="button"/>
-                                    </div>
-                                </div>
-                            </td>
+                <div class="p-t-31 p-b-9">
+						<span class="txt1">
+                            Login
+						</span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate = "Username is required">
+                    <input class="input100" type="text" name="login" >
+                    <span class="focus-input100"></span>
+                </div>
 
-                        </tr>
-                    </table>
+                <div class="p-t-13 p-b-9">
+						<span class="txt1">
+                            Senha
+						</span>
 
-                    <a href="#"> Esqueceu sua senha?</a><br/>
-                    <a href="<%=path%>/roles/guest/cadastroGuestUser.jsp"> Cadastre-se</a>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                    <input type="password" class="input100" name="passwordHash" >
+                    <span class="focus-input100"></span>
+                </div>
 
-                </form>
-            </div>
+                <div class="container-login100-form-btn m-t-17">
+                    <input type="submit" class="login100-form-btn" name="formLogin" value="Entrar">
+
+                </div>
+
+                <div class="w-full text-center p-t-55">
+						<span class="txt2">
+                            <a href="#">Esqueceu a senha?</a>
+						</span>
+                    <br/>
+
+                    <a href="<%=path%>/roles/guest/cadastroGuestUser.jsp" class="txt2 bo1">
+                        Cadastre-se
+                    </a>
+                </div>
+
+            </form>
         </div>
-    </center>
+    </div>
+</div>
 <%}%>
 
-<%@include file="/WEB-INF/jspf/footer.jspf" %>
+
 </body>
 </html>

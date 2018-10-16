@@ -38,15 +38,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <%@include file="/WEB-INF/jspf/favicon.jspf" %>
-
-    <%@include file="/WEB-INF/jspf/cabecalho.jspf" %>
 
     <title>Cadastro - Períodos</title>
+
+    <%@include file="../../WEB-INF/jspf/favicon.jspf"%>
+
+    <%@include file="../../WEB-INF/jspf/cabecalho.jspf"%>
+
 </head>
 <body>
     <% if (session.getAttribute("user") == null) { %>
-        <center><a href="<%=caminho%>/home.jsp"><img src="<%=caminho%>/Imagens/erro/tenor-you-shouldnt-have-come-here.gif" alt="EN: You Shouldn't Have Come Here"></a></center>
+        <div align="center"><a href="<%=caminho%>/home.jsp"><img src="<%=caminho%>/Imagens/erro/tenor-you-shouldnt-have-come-here.gif" alt="EN: You Shouldn't Have Come Here"></a></div>
     <% } else { %>
         <%@include file="/WEB-INF/jspf/menu.jspf" %>
         <br>
@@ -70,43 +72,50 @@
         </div>
     <br>
 
-    <br>
-    <hr>
-    <table class="table table-hover" >
-        <thead>
-        <tr class="table-active">
-            <th scope="col">ID</th>
-            <th scope="col">Período</th>
-            <th scope="col">Apagar</th>
-            <th scope="col">Alterar</th>
-        </tr>
-        </thead>
-        <% for(Period p: Period.getPeriods()) { %>
-        <tbody>
-        <tr>
-            <td><%= p.getId() %></td>
-            <td><%= p.getNamePeriod() %></td>
-            <td>
-                <form>
-                    <input type="hidden" name="idRM" value="<%= p.getId() %>"/>
-                    <input type="submit" name="formDeleteUser" value="Remover" class="btn btn-danger"/>
-                </form>
-            </td>
-            <td>
-                <form action="alterarPeriod.jsp">
-                    <input type="hidden" name="idALT" value="<%= p.getId() %>"/>
-                    <input type="hidden" name="nomePeriodALT" value="<%= p.getNamePeriod() %>"/>
-                    <input  type="submit" value="Alterar" class="btn btn-primary"/>
-                </form>
-            </td>
-        </tr>
-        <% } %>
-        </tbody>
-    </table>
 
-    <br/>
-    <% } %>
+    <div class="limiter">
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table100 ver6 m-b-110">
+                    <table data-vertable="ver6">
+                        <thead>
+                        <tr class="row100 head">
+                            <th class="column100 column1" data-column="column1">ID</th>
+                            <th class="column100 column2" data-column="column2">Período</th>
+                            <th class="column100 column3" data-column="column3">Apagar</th>
+                            <th class="column100 column4" data-column="column4">Alterar</th>
 
-    <%@include file="/WEB-INF/jspf/footer.jspf" %>
+                        </tr>
+                        </thead>
+                        <% for(Period p: Period.getPeriods()) { %>
+                        <tbody>
+                        <tr class="row100">
+                            <td class="column100 column1" data-column="column1"><%= p.getId() %></td>
+                            <td class="column100 column2" data-column="column2"><%= p.getNamePeriod() %></td>
+                            <td class="column100 column3" data-column="column3">
+                                <form>
+                                    <input type="hidden" name="idRM" value="<%= p.getId() %>"/>
+                                    <input type="submit" name="formDeleteUser" value="Remover" class="btn btn-danger"/>
+                                </form>
+                            </td>
+                            <td class="column100 column4" data-column="column4">
+                                <form action="alterarPeriod.jsp">
+                                    <input type="hidden" name="idALT" value="<%= p.getId() %>"/>
+                                    <input type="hidden" name="nomePeriodALT" value="<%= p.getNamePeriod() %>"/>
+                                    <input  type="submit" value="Alterar" class="btn btn-primary"/>
+                                </form>
+                            </td>
+
+                        </tr>
+                        <% } %>
+                        </tbody>
+                    </table>
+                </div>
+              <% } %>
+
+
+
+
+
 </body>
 </html>

@@ -12,6 +12,7 @@
 </head>
 <body>
 
+
     <%@include file="WEB-INF/jspf/menu.jspf" %>
 
 </body>

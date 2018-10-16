@@ -86,9 +86,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <%@include file="/WEB-INF/jspf/favicon.jspf" %>
+    <%@include file="../../WEB-INF/jspf/cabecalho.jspf"%>
 
-    <%@include file="/WEB-INF/jspf/cabecalho.jspf" %>
+    <%@include file="../../WEB-INF/jspf/cabecalho.jspf" %>
 
     <title>Cadastro - SETCC</title>
 </head>
@@ -97,18 +97,19 @@
         <% if(error != null){ %>
         <script>alert ("<%= error %>");</script>
         <%}%>
+
         <div align="center">
         <div class="limiter">
             <div style="background-image: url('/Imagens/bg-01.jpg')">
-        <form class="login100-form validate-form flex-sb flex-w col-md-5" action="<%=caminho%>/roles/guest/cadastroGuestUser.jsp" method="post">
+        <form class="login100-form validate-form flex-sb flex-w col-md-5" action="<%=caminhoCSS%>/roles/guest/cadastroGuestUser.jsp" method="post">
             <legend>Papel: </legend>
-            <select required name="papel" class="form-control col-md-5" >
+            <select required name="papel" class="txt1 form-control col-md-5" >
                 <option value="Aluno">Aluno</option>
                 <option value="Professor">Professor</option>
             </select>
             <input type="submit" value="OK" class="btn btn-primary">
         </form>
-        <br>
+
 
         <%
             User u = new User();
@@ -117,53 +118,98 @@
                 if (!u.getTipoDeUsuario().isEmpty()) {
         %>
 
-        <br>
 
-            <div class="card" style="width: 60rem;">
-                <form>
-
-                    <div class="wrap-input100 validate-input col-md-5">
-                        <label>Nome</label>
-                        <input required type="text" name="name" class="form-control"  placeholder="Insira o nome do usuário">
+        <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+            <div class="wrapper wrapper--w790">
+                <div class="card card-5">
+                    <div class="card-heading">
+                        <h2 class="title">Cadastro</h2>
                     </div>
+                    <div class="card-body">
+                        <form method="POST">
 
-                    <div class="wrap-input100 validate-input col-md-5">
-                        <label>Endereço de email</label>
-                        <input required type="email" name="email" class="form-control" placeholder="Insira o email do usuário">
+                            <div class="form-row">
+                                <div class="name">Nome</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input required type="text" name="name" class="input--style-5" placeholder="Insira o nome do usuário">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="name">Email</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input required type="email" name="email" class="input--style-5" placeholder="Insira o email do usuário">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="name">Senha</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input required type="password" name="pass" class="input--style-5" placeholder="Insira a senha">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <% if (u.getTipoDeUsuario().equals("Aluno")) { %>
+                            <div class="form-row">
+                                <div class="name">RA Aluno</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input required type="text" name="alunoRA" class="input--style-5" placeholder="1290581822013">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-row">
+                                <div class="name">Período</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <div class="rs-select2 js-select-simple select--no-search">
+                                            <select required name="periodo">
+                                                <% for (Period p: Period.getPeriods()) { %>
+                                                <option value="<%=p.getId()%>"><%=p.getNamePeriod()%></option>
+                                                <% } %>
+                                            </select>
+                                            <div class="select-dropdown"></div>
+                                            <% } %>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <% if (u.getTipoDeUsuario().equals("Professor")) { %>
+                            <div class="form-row">
+                                <div class="name">RA Professor</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input required type="text" name="professorCD" class="input--style-5" placeholder="1290581822013">
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+
+                            <div>
+                                <input type="hidden" name="tipo" value="<%=u.getTipoDeUsuario()%>">
+                                <imput type="submit" name="formNewUser" value="Adicionar" class="btn btn--radius-2 btn--red"/>
+                            </div>
+                        </form>
                     </div>
-
-                    <div class="wrap-input100 validate-input col-md-5">
-                        <label>Senha</label>
-                        <input required type="password" name="pass" class="form-control" placeholder="Insira a senha">
-                    </div>
-
-                    <% if (u.getTipoDeUsuario().equals("Aluno")) { %>
-                    RA Aluno: <div class="wrap-input100 validate-input col-md-5"><input required type="text" name="alunoRA" class="form-control" placeholder="1290581822013"></div>
-                    <legend>Período: </legend>
-                    <select required name="periodo" class="form-control">
-                    <% for (Period p: Period.getPeriods()) { %>
-                        <option value="<%=p.getId()%>"><%=p.getNamePeriod()%></option>
-                    <% } %>
-                    </select>
-                    <% } %>
-                    <% if (u.getTipoDeUsuario().equals("Professor")) { %>
-                    RA Professor: <div class="wrap-input100 validate-input col-md-5"><input required type="text" name="professorCD" class="form-control" placeholder="1290581822013"></div>
-                    <% } %>
-
-                    <input type="hidden" name="tipo" value="<%=u.getTipoDeUsuario()%>">
-                    <input type="submit" name="formNewUser" value="Adicionar" class="btn btn-success"/>
-
-                    <br/>
-
-                </form>
-            </div>
-
-    <br>
-    <% } %>
-    <% } %>
-
+                </div>
             </div>
         </div>
+
+                <% } %>
+                <% } %>
+
+            </div>
+           </div>
         </div>
+
 </body>
 </html>
