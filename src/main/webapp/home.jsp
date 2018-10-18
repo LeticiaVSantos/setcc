@@ -6,14 +6,14 @@
 
     <%@include file="WEB-INF/jspf/favicon.jspf" %>
 
-    <%@include file="WEB-INF/jspf/cabecalho.jspf" %>
 
     <title>Projeto TCC</title>
 </head>
 <body>
 
 
-    <%@include file="WEB-INF/jspf/menu.jspf" %>
+<%@include file="WEB-INF/jspf/menu.jspf" %>
+
 
 </body>
 </html>

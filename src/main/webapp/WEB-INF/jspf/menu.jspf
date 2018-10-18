@@ -1,62 +1,69 @@
-<%@page import="br.com.fatecpg.setcc.User"%>
+<%@page import="br.com.fatecpg.setcc.User" %>
 <%@ page pageEncoding="UTF-8" %>
 
-<link href="css/css.css" rel="stylesheet"/>
-<link href="css/mainNav.css" rel="stylesheet"/>
-<link href="css/util.css" rel="stylesheet"/>
-
+<%@include file="cabecalho.jspf" %>
 
 <%
     String path = request.getContextPath();
     String errorMessage = null;
 
 
-    if(request.getParameter("formLogoff") != null){
+    if (request.getParameter("formLogoff") != null) {
         session.removeAttribute("user");
         response.sendRedirect(path + "/login.jsp");
     }
 %>
 
-<% if(errorMessage != null){ %>
-    <script>alert ("<%= errorMessage %>");</script>
+<% if (errorMessage != null) { %>
+<script>alert("<%= errorMessage %>");</script>
 <%}%>
 
 
-<%if(session.getAttribute("user") != null){%>
+<%if (session.getAttribute("user") != null) {%>
 <% User user = (User) session.getAttribute("user"); %>
 
+<div class="container main-menu">
+    <div class="row align-items-center justify-content-between d-flex">
+        <div id="logo">
+            <a href="home.jsp"><img src="img/logo.png" alt="" title=""/></a>
+        </div>
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+                <li class="menu-active"><a href="home.jsp">Home</a></li>
 
-<nav class="left-nav">
-    <ul id="nav">
-        <li><a class="nav-link" href="<%=path%>/home.jsp">Home</a></li>
+                <%if (user.getTipoDeUsuario().equals("Aluno")) {%>
+                <li><a href="<%=path%>/roles/student/cadastrarProj.jsp">Cadastrar Projeto</a></li>
+                <%}%>
 
-        <%if(user.getTipoDeUsuario().equals("Aluno")){%>
-        <li><a class="nav-link" href="<%=path%>/roles/student/cadastrarProj.jsp">Cadastrar Projeto</a></li>
-        <%}%>
+                <%if (user.getTipoDeUsuario().equals("Administrador")) {%>
+                <li><a href="<%=path%>/roles/adm/cadastroUser.jsp">Cadastrar Usuário</a></li>
+                <%}%>
 
-        <%if(user.getTipoDeUsuario().equals("Administrador")){%>
-        <li><a class="nav-link" href="<%=path%>/roles/adm/cadastroUser.jsp">Cadastrar Usuário</a></li>
-        <%}%>
+                <%if (user.getTipoDeUsuario().equals("Administrador")) {%>
+                <li><a href="<%=path%>/roles/adm/listaUser.jsp">Listar Usuários</a></li>
+                <%}%>
 
-        <%if(user.getTipoDeUsuario().equals("Administrador")){%>
-        <li><a class="nav-link" href="<%=path%>/roles/adm/listaUser.jsp">Listar Usuários</a></li>
-        <%}%>
-
-        <%if(user.getTipoDeUsuario().equals("Administrador")){%>
-        <li><a class="nav-link" href="<%=path%>/roles/adm/cadastroPeriod.jsp">Cadastrar Período</a></li>
-        <%}%>
-
-    </ul>
-</nav>
+                <%if (user.getTipoDeUsuario().equals("Administrador")) {%>
+                <li><a href="<%=path%>/roles/adm/cadastroPeriod.jsp">Cadastrar Período</a></li>
+                <%}%>
+            </ul>
+        </nav>
+    </div>
+</div>
 
 
 <div>
     <form>
         <div align="center">Bem vindo(a), <%= user.getName() %> [<%= user.getTipoDeUsuario()%>]
-            <input type="submit" name="formLogoff" value="Sair" class="btn btn-primary"/><div/>
+            <input type="submit" name="formLogoff" value="Sair" class="btn btn-primary"/>
+            <div/>
     </form>
 </div>
+
 <%}%>
+
+
+
 
 
 

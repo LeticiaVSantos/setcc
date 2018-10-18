@@ -43,7 +43,6 @@
 
     <%@include file="../../WEB-INF/jspf/favicon.jspf"%>
 
-    <%@include file="../../WEB-INF/jspf/cabecalho.jspf"%>
 
 </head>
 <body>
@@ -76,8 +75,8 @@
     <div class="limiter">
         <div class="container-table100">
             <div class="wrap-table100">
-                <div class="table100 ver6 m-b-110">
-                    <table data-vertable="ver6">
+                <div class="table100 ver3 m-b-110">
+                    <table data-vertable="ver3">
                         <thead>
                         <tr class="row100 head">
                             <th class="column100 column1" data-column="column1">ID</th>
@@ -95,14 +94,14 @@
                             <td class="column100 column3" data-column="column3">
                                 <form>
                                     <input type="hidden" name="idRM" value="<%= p.getId() %>"/>
-                                    <input type="submit" name="formDeleteUser" value="Remover" class="btn btn-danger"/>
+                                    <input type="submit" name="formDeleteUser" value="Remover" class="genric-btn warning circle"/>
                                 </form>
                             </td>
                             <td class="column100 column4" data-column="column4">
                                 <form action="alterarPeriod.jsp">
                                     <input type="hidden" name="idALT" value="<%= p.getId() %>"/>
                                     <input type="hidden" name="nomePeriodALT" value="<%= p.getNamePeriod() %>"/>
-                                    <input  type="submit" value="Alterar" class="btn btn-primary"/>
+                                    <input  type="submit" value="Alterar" class="genric-btn primary circle"/>
                                 </form>
                             </td>
 
@@ -112,9 +111,6 @@
                     </table>
                 </div>
               <% } %>
-
-
-
 
 
 </body>

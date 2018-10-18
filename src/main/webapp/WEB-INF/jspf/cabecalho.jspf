@@ -1,5 +1,6 @@
 <%@ page pageEncoding="UTF-8" %>
-    <% String caminhoCSS = request.getContextPath(); %>
+
+<% String pathCSS = request.getContextPath(); %>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -8,112 +9,119 @@
 <link rel="icon" href="Imagens/favicon (1).png">
 
 
+
 <!-- css tela de login -->
 
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<%= pathCSS%>/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="<%= pathCSS%>/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<link rel="stylesheet" type="text/css" href="<%= pathCSS%>/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<link rel="stylesheet" type="text/css" href="<%= pathCSS%>/vendor/animate/animate.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<link rel="stylesheet" type="text/css" href="<%= pathCSS%>/vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<link rel="stylesheet" type="text/css" href="<%= pathCSS%>/vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="<%= pathCSS%>/vendor/select2/select2.min.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<link rel="stylesheet" type="text/css" href="<%= pathCSS%>/vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="css/util.css">
-<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="<%= pathCSS%>/css/util.css">
+<link rel="stylesheet" type="text/css" href="<%= pathCSS%>/css/main.css">
 <!--===============================================================================================-->
 
-<!-- css navbar -->
-<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet'>
 
-<!-- Syntax Highlighter -->
-<link rel="stylesheet" type="text/css" href="syntax-highlighter/styles/shCore.css" media="all">
-<link rel="stylesheet" type="text/css" href="syntax-highlighter/styles/shThemeDefault.css" media="all">
 
 <!-- Font Awesome CSS-->
-<link rel="stylesheet" href="../../../../IdeaProjects/setcc/src/main/webapp/css/font-awesome.min.css">
+<link rel="stylesheet" href="<%= pathCSS%>/css/font-awesome.min.css">
 <!-- Normalize/Reset CSS-->
-<link rel="stylesheet" href="css/normalize.min.css">
+<link rel="stylesheet" href="<%= pathCSS%>/css/normalize.min.css">
 <!-- Main CSS-->
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="<%= pathCSS%>/css/main.css">
+
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+<!--
+CSS
+============================================= -->
+
+<link rel="stylesheet" href="<%= pathCSS%>/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="<%= pathCSS%>/css/nice-select.css">
+
+<link rel="stylesheet" href="<%= pathCSS%>/css/main.css">
 
 
 <!-- Icons font CSS-->
-<link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-<link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+<link href="<%= pathCSS%>/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+<link href="<%= pathCSS%>/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
 <!-- Font special for pages-->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 
 <!-- Vendor CSS-->
-<link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-<link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+<link href="<%= pathCSS%>/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+<link href="<%= pathCSS%>/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
 
 <!-- Main CSS-->
-<link href="css/main.css" rel="stylesheet" media="all">
+<link href="<%= pathCSS%>/css/main.css" rel="stylesheet" media="all">
 
 
 <!-- Css Table -->
 
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="../../vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<%= pathCSS%>/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="../../fonts/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="<%= pathCSS%>/fonts/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="../../vendor/animate/animate.css">
+<link rel="stylesheet" type="text/css" href="<%= pathCSS%>/vendor/animate/animate.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="../../vendor/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="<%= pathCSS%>/vendor/select2/select2.min.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="../../vendor/perfect-scrollbar/perfect-scrollbar.css">
+<link rel="stylesheet" type="text/css" href="<%= pathCSS%>/vendor/perfect-scrollbar/perfect-scrollbar.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="../../css/util.css">
-<link rel="stylesheet" type="text/css" href="../../css/main.css">
+<link rel="stylesheet" type="text/css" href="<%= pathCSS%>/css/util.css">
+<link rel="stylesheet" type="text/css" href="<%= pathCSS%>/css/main.css">
 <!--===============================================================================================-->
 
 
 <!-- Script tela de login-->
 <!--===============================================================================================-->
-<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="<%= pathCSS%>/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-<script src="vendor/animsition/js/animsition.min.js"></script>
+<script src="<%= pathCSS%>/vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-<script src="vendor/bootstrap/js/popper.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="<%= pathCSS%>/vendor/bootstrap/js/popper.js"></script>
+<script src="<%= pathCSS%>/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-<script src="vendor/select2/select2.min.js"></script>
+<script src="<%= pathCSS%>/vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-<script src="vendor/daterangepicker/moment.min.js"></script>
-<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<script src="<%= pathCSS%>/vendor/daterangepicker/moment.min.js"></script>
+<script src="<%= pathCSS%>/vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-<script src="vendor/countdowntime/countdowntime.js"></script>
+<script src="<%= pathCSS%>/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-<script src="js/main.js"></script>
+<script src="<%= pathCSS%>/js/main.js"></script>
 
 
 <!-- Jquery JS-->
-<script src="vendor/jquery/jquery.min.js"></script>
+<script src="<%= pathCSS%>/vendor/jquery/jquery.min.js"></script>
 <!-- Vendor JS-->
-<script src="vendor/select2/select2.min.js"></script>
-<script src="vendor/datepicker/moment.min.js"></script>
-<script src="vendor/datepicker/daterangepicker.js"></script>
+<script src="<%= pathCSS%>/vendor/select2/select2.min.js"></script>
+<script src="<%= pathCSS%>/vendor/datepicker/moment.min.js"></script>
+<script src="<%= pathCSS%>/vendor/datepicker/daterangepicker.js"></script>
 
 <!-- Main JS-->
-<script src="js/global.js"></script>
+<script src="<%= pathCSS%>/js/global.js"></script>
 
 
 <!--======================== Table ================================================================-->
-<script src="../../vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="<%= pathCSS%>/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-<script src="../../vendor/bootstrap/js/popper.js"></script>
-<script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="<%= pathCSS%>/vendor/bootstrap/js/popper.js"></script>
+<script src="<%= pathCSS%>/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-<script src="../../vendor/select2/select2.min.js"></script>
+<script src="<%= pathCSS%>/vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-<script src="../../js/main.js"></script>
+<script src="<%= pathCSS%>/js/main.js"></script>

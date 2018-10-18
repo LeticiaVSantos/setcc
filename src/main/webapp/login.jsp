@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="container-login100-form-btn m-t-17">
-                    <input type="submit" class="login100-form-btn" name="formLogin" value="Entrar">
+                    <button type="submit" name="formLogin" class="login100-form-btn" value="Entrar"> Entrar </button>
 
                 </div>
 

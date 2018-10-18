@@ -34,7 +34,7 @@
 <head>
     <%@include file="/WEB-INF/jspf/favicon.jspf" %>
 
-    <%@include file="/WEB-INF/jspf/cabecalho.jspf" %>
+
 
     <title>Lista - Usuários</title>
 </head>

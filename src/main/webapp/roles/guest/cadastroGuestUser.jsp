@@ -88,7 +88,7 @@
 <head>
     <%@include file="../../WEB-INF/jspf/cabecalho.jspf"%>
 
-    <%@include file="../../WEB-INF/jspf/cabecalho.jspf" %>
+
 
     <title>Cadastro - SETCC</title>
 </head>
@@ -101,7 +101,7 @@
         <div align="center">
         <div class="limiter">
             <div style="background-image: url('/Imagens/bg-01.jpg')">
-        <form class="login100-form validate-form flex-sb flex-w col-md-5" action="<%=caminhoCSS%>/roles/guest/cadastroGuestUser.jsp" method="post">
+        <form class="login100-form validate-form flex-sb flex-w col-md-5" action="<%=caminho%>/roles/guest/cadastroGuestUser.jsp" method="post">
             <legend>Papel: </legend>
             <select required name="papel" class="txt1 form-control col-md-5" >
                 <option value="Aluno">Aluno</option>
