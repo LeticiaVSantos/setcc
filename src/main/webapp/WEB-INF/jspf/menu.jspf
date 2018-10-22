@@ -1,0 +1,93 @@
+<%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ page import="br.com.fatecpg.setcc.User" %>
+<%
+    String path = request.getContextPath();
+    String errorMessage = null;
+
+
+    if(request.getParameter("formLogoff") != null){
+        session.removeAttribute("user");
+        response.sendRedirect(path + "/login.jsp");
+    }
+%>
+
+<% if(errorMessage != null){ %>
+<script>alert ("<%= errorMessage %>");</script>
+<%}%>
+
+
+<%if(session.getAttribute("user") != null){%>
+<% User user = (User) session.getAttribute("user"); %>
+
+<header id="header" id="home">
+    <div class="container main-menu">
+        <div class="row align-items-center justify-content-between d-flex">
+            <div id="logo">
+                <a href="<%=path%>/index.jsp"><img src="<%=path%>/img/logo.png" alt="" title="" /></a>
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li class="menu-active"><a href="<%=path%>/index.jsp">Home</a></li>
+
+                    <%if(user.getTipoDeUsuario().equals("Administrador")){%>
+                    <li class="menu-has-children"><a href="">Usuários</a>
+                        <ul>
+                            <li><a href="<%=path%>/userForm.jsp">Cadastrar</a></li>
+                            <li><a href="<%=path%>/userList.jsp">Listar (Alterar/Desativar)</a></li>
+                        </ul>
+                    </li>
+                    <%}%>
+
+                    <%if(user.getTipoDeUsuario().equals("Aluno")){%>
+                    <li class="menu-has-children"><a href="">Projetos</a>
+                        <ul>
+                            <li><a href="<%=path%>/#">Cadastrar</a></li>
+                            <li><a href="<%=path%>/#">Listar (Alterar/Desativar)</a></li>
+                        </ul>
+                    </li>
+                    <%}%>
+
+                    <%if(user.getTipoDeUsuario().equals("Administrador")){%>
+                    <li class="menu-has-children"><a href="">Cursos</a>
+                        <ul>
+                            <li><a href="<%=path%>/#">Cadastrar</a></li>
+                            <li><a href="<%=path%>/#">Listar (Alterar/Desativar)</a></li>
+                        </ul>
+                    </li>
+                    <%}%>
+
+                    <%if(user.getTipoDeUsuario().equals("Administrador")){%>
+                    <li class="menu-has-children"><a href="">Períodos</a>
+                        <ul>
+                            <li><a href="<%=path%>/periodForm.jsp">Cadastrar</a></li>
+                            <li><a href="<%=path%>/periodList.jsp">Listar (Alterar/Desativar)</a></li>
+                        </ul>
+                    </li>
+                    <%}%>
+
+                    <%if(user.getTipoDeUsuario().equals("Administrador")){%>
+                    <li class="menu-has-children"><a href="">Temporadas</a>
+                        <ul>
+                            <li><a href="<%=path%>/#">Cadastrar</a></li>
+                            <li><a href="<%=path%>/#">Listar (Alterar/Desativar)</a></li>
+                        </ul>
+                    </li>
+                    <%}%>
+
+                    <li class="menu-has-children"><a href="">Olá, <%=user.getName()%></a>
+                        <ul>
+                            <li><a href="<%=path%>/#">Editar Perfil</a></li>
+                            <li>
+                                <form method="post">
+                                    <input class="genric-btn danger small" type="submit" name="formLogoff" value=" Encerrar Sessão ">
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </div>
+</header><!-- #header -->
+
+<%}%>

@@ -1,0 +1,10 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<!--===============================================================================================-->
+<script src="vendor/jquery-table/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/bootstrap-table/js/popper.js"></script>
+<script src="vendor/bootstrap-table/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/select2-table/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="js/main-table.js"></script>

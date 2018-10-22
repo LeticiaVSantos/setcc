@@ -1,0 +1,17 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<!--===============================================================================================-->
+<script src="vendor/jquery_form/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/animsition_form/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/bootstrap_form/js/popper.js"></script>
+<script src="vendor/bootstrap_form/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/select2_form/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/daterangepicker_form/moment.min.js"></script>
+<script src="vendor/daterangepicker_form/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/countdowntime_form/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="js/main_form.js"></script>

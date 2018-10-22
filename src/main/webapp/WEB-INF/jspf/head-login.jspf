@@ -1,0 +1,24 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href="images/icons_login/favicon.ico"/>
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/bootstrap_login/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0_login/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0_login/icon-font.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/animate_login/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers_login/hamburgers.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/animsition_login/css/animsition.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/select2_login/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/daterangepicker_login/daterangepicker.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="css/util_login.css">
+<link rel="stylesheet" type="text/css" href="css/main_login.css">
+<!--===============================================================================================-->

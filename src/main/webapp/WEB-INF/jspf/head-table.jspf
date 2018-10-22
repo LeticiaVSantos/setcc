@@ -1,0 +1,18 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href="images/icons-table/favicon.ico"/>
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/bootstrap-table/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0-table/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/animate-table/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/select2-table/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar-table/perfect-scrollbar.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="css/util-table.css">
+<link rel="stylesheet" type="text/css" href="css/main-table.css">
+<!--===============================================================================================-->
