@@ -43,7 +43,7 @@
     <!-- CSS Table -->
     <%@include file="WEB-INF/jspf/head-table.jspf"%>
     <!-- Site Title -->
-    <title>Lista de Usuários - SETCC</title>
+    <title>Lista de Temporadas - SETCC</title>
 </head>
 <body>
 
@@ -57,7 +57,7 @@
 <!-- Banner page up - begin -->
 <%@include file="WEB-INF/jspf/banner-page-up.jspf"%>
 <h1 class="text-white">
-    Lista de Usuários
+    Lista de Temporadas
 </h1>
 <p class="text-white link-nav"><a href="index.jsp">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="userList.jsp"> Lista de Temporadas</a></p>
 <%@include file="WEB-INF/jspf/banner-page-down.jspf"%>

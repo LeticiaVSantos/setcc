@@ -58,7 +58,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="single-feature">
 					<a href="#" class="title d-flex flex-row">
-						<span class="lnr lnr-user"></span>
+						<span class="lnr lnr-users"></span>
 						<h4>Usuários</h4>
 					</a>
 					<p>
@@ -69,7 +69,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="single-feature">
 					<a href="#" class="title d-flex flex-row">
-						<span class="lnr lnr-license"></span>
+						<span class="lnr lnr-sun"></span>
 						<h4>Períodos</h4>
 					</a>
 					<p>
@@ -80,7 +80,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="single-feature">
 					<a href="#" class="title d-flex flex-row">
-						<span class="lnr lnr-phone"></span>
+						<span class="lnr lnr-graduation-hat"></span>
 						<h4>Projetos</h4>
 					</a>
 					<p>
@@ -91,7 +91,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="single-feature">
 					<a href="#" class="title d-flex flex-row">
-						<span class="lnr lnr-rocket"></span>
+						<span class="lnr lnr-calendar-full"></span>
 						<h4>Temporadas</h4>
 					</a>
 					<p>
@@ -102,7 +102,7 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="single-feature">
 					<a href="#" class="title d-flex flex-row">
-						<span class="lnr lnr-diamond"></span>
+						<span class="lnr lnr-book"></span>
 						<h4>Cursos</h4>
 					</a>
 					<p>

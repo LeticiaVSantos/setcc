@@ -94,7 +94,7 @@
                 </div>
 
                 <div class="container-login100-form-btn m-t-17">
-                    <input type="submit" class="login100-form-btn" name="formLogin" value="Entrar">
+                    <button type="submit" class="login100-form-btn" name="formLogin" value="Entrar"> Entrar </button>
                 </div>
 
                 <div class="w-full text-center p-t-55">

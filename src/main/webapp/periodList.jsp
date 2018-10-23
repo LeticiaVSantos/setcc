@@ -41,7 +41,7 @@
     <!-- CSS Table -->
     <%@include file="WEB-INF/jspf/head-table.jspf"%>
     <!-- Site Title -->
-    <title>Lista de Usuários - SETCC</title>
+    <title>Lista de Períodos - SETCC</title>
 </head>
 <body>
 
@@ -55,9 +55,9 @@
 <!-- Banner page up - begin -->
 <%@include file="WEB-INF/jspf/banner-page-up.jspf"%>
 <h1 class="text-white">
-    Lista de Usuários
+    Lista de Períodos
 </h1>
-<p class="text-white link-nav"><a href="index.jsp">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="userList.jsp"> Lista de Usuários</a></p>
+<p class="text-white link-nav"><a href="index.jsp">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="userList.jsp"> Lista de Períodos</a></p>
 <%@include file="WEB-INF/jspf/banner-page-down.jspf"%>
 <!-- Banner page up - end -->
 
@@ -99,9 +99,9 @@
                     <% } else { %>
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-12 pb-40 header-text text-center">
-                            <h1 id="jumpAlt" class="pb-10 text-dark">Alterando Informações de <%= request.getParameter("nameALT") %></h1>
-                        </div>
-                    </div>
+                            <form class="contact100-form validate-form">
+                            <h1 id="jumpAlt" class="contact100-form-title">Alterando Informações de <%= request.getParameter("nameALT") %></h1>
+
                     <tr class="row100 head">
                         <th class="column100 column2" data-column="column2">ID</th>
                         <th class="column100 column1" data-column="column1">Nome</th>
@@ -128,6 +128,9 @@
                     <% } %>
                     </tbody>
                 </table>
+            </form>
+            </div>
+        </div>
             </div>
         </div>
     </div>

@@ -112,9 +112,8 @@
                     <% } else { %>
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-12 pb-40 header-text text-center">
-                            <h1 id="jumpAlt" class="pb-10 text-dark">Alterando Informações de <%= request.getParameter("nameALT") %></h1>
-                        </div>
-                    </div>
+                            <form class="contact100-form validate-form">
+                            <span id="jumpAlt" class="contact100-form-title">Alterando Informações de <%= request.getParameter("nameALT") %></span>
                     <tr class="row100 head">
                         <th class="column100 column2" data-column="column2">ID</th>
                         <th class="column100 column1" data-column="column1">Nome</th>
@@ -150,6 +149,9 @@
                     <% } %>
                     </tbody>
                 </table>
+                 </form>
+               </div>
+              </div>
             </div>
         </div>
     </div>

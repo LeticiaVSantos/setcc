@@ -150,7 +150,7 @@
 <%} else {%>
 
 <div class="container-contact100"><!-- Formulário de Cadastro -->
-    <div class="wrap-contact100">
+    <div class="container-contact100">
         <form class="contact100-form validate-form">
 				<span class="contact100-form-title">
 					Cadastrar Novo Usuário
