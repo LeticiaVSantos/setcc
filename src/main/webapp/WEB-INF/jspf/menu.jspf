@@ -68,8 +68,8 @@
                     <%if(user.getTipoDeUsuario().equals("Administrador")){%>
                     <li class="menu-has-children"><a href="">Temporadas</a>
                         <ul>
-                            <li><a href="<%=path%>/#">Cadastrar</a></li>
-                            <li><a href="<%=path%>/#">Listar (Alterar/Desativar)</a></li>
+                            <li><a href="<%=path%>/seasonForm.jsp">Cadastrar</a></li>
+                            <li><a href="<%=path%>/seasonList.jsp">Listar (Alterar/Desativar)</a></li>
                         </ul>
                     </li>
                     <%}%>
