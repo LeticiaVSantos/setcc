@@ -29,7 +29,7 @@
     </schema>
     <schema id="8" parent="3" name="teste">
       <ObjectId>5</ObjectId>
-      <IntrospectionTimestamp>2018-10-24.13:55:57.960</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2018-10-24.17:28:50.753</IntrospectionTimestamp>
       <Visible>1</Visible>
     </schema>
     <schema id="9" parent="3" name="setcc">

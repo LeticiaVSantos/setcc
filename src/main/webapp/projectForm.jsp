@@ -1,16 +1,20 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ page import="br.com.fatecpg.setcc.Project" %>
 <%@ page import="br.com.fatecpg.setcc.User" %>
- <%
+<%@ page import="br.com.fatecpg.setcc.Season" %>
+<%
     String pathForm = request.getContextPath();
     /*String error = null;*/
 
     if (request.getParameter("formNewProject") != null) {
         String tema = request.getParameter("tema");
-        Byte[] pdfTCC = setBytes(request.getParameter("pdfTCC"));
+        long integrantes = Long.parseLong(request.getParameter("integrantes"));
+        long orientador = Long.parseLong(request.getParameter("orientador"));
+        long season = Long.parseLong(request.getParameter("season"));
+
 
         try {
-            Project.addProject(name);
+            Project.addProject(tema, integrantes, orientador, season, pdf);
             response.sendRedirect(pathForm + "/projectList.jsp");
         } catch (Exception e) {
             /*error = e.getMessage();*/
@@ -61,13 +65,31 @@
 
             <label class="label-input100" for="aluno">Integrantes *</label>
             <div class="wrap-input100 validate-input">
-                <input id="aluno" class="input100" type="text" name="aluno">
+                <% for (User u: User.getUsers()) { %>
+                <% if (u.getTipoDeUsuario().equals("Aluno")) {%>
+                <input id="aluno" class="input100" type="checkbox" name="integrantes" value="<%=u.getId()%>"> <%=u.getName()%><br/>
+                <% } %>
+                <% } %>
                 <span class="focus-input100"></span>
             </div>
 
             <label class="label-input100" for="professor">Orientador *</label>
             <div class="wrap-input100 validate-input">
-                <input id="professor" class="input100" type="text" name="professor">
+                <% for (User u: User.getUsers()) { %>
+                <% if (u.getTipoDeUsuario().equals("Professor")) {%>
+                <input id="professor" class="input100" type="checkbox" name="orientador" value="<%=u.getId()%>"> <%=u.getName()%><br/>
+                <% } %>
+                <% } %>
+                <span class="focus-input100"></span>
+            </div>
+
+            <label class="label-input100" for="season">Temporada de Entrega*</label>
+            <div class="wrap-input100 validate-input">
+                <select id="season" class="input100" name="season">
+                    <% for (Season s: Season.getSeasons()) { %>
+                    <option value="<%=s.getId()%>"><%=s.getDeadlineProjeto()%></option>
+                    <% } %>
+                </select>
                 <span class="focus-input100"></span>
             </div>
 
