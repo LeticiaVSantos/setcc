@@ -50,8 +50,8 @@
                     <%if(user.getTipoDeUsuario().equals("Administrador")){%>
                     <li class="menu-has-children"><a href="">Cursos</a>
                         <ul>
-                            <li><a href="<%=path%>/#">Cadastrar</a></li>
-                            <li><a href="<%=path%>/#">Listar (Alterar/Desativar)</a></li>
+                            <li><a href="<%=path%>/courseForm.jsp">Cadastrar</a></li>
+                            <li><a href="<%=path%>/courseList.jsp">Listar (Alterar/Desativar)</a></li>
                         </ul>
                     </li>
                     <%}%>

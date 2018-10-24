@@ -29,7 +29,7 @@
     </schema>
     <schema id="8" parent="3" name="teste">
       <ObjectId>5</ObjectId>
-      <IntrospectionTimestamp>2018-10-23.17:58:46.777</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2018-10-23.22:20:06.317</IntrospectionTimestamp>
       <Visible>1</Visible>
     </schema>
     <schema id="9" parent="3" name="setcc">
@@ -67,7 +67,7 @@
     <table id="19" parent="8" name="Courses">
       <ObjectId>1010102639</ObjectId>
       <CreatedTimestamp>2018-10-06.16:16:50.997</CreatedTimestamp>
-      <ModifiedTimestamp>2018-10-06.17:17:08.793</ModifiedTimestamp>
+      <ModifiedTimestamp>2018-10-23.22:20:05.507</ModifiedTimestamp>
     </table>
     <table id="20" parent="8" name="Periods">
       <ObjectId>834102012</ObjectId>
@@ -77,7 +77,7 @@
     <table id="21" parent="8" name="Professors">
       <ObjectId>898102240</ObjectId>
       <CreatedTimestamp>2018-10-06.16:08:36.407</CreatedTimestamp>
-      <ModifiedTimestamp>2018-10-09.14:12:34.527</ModifiedTimestamp>
+      <ModifiedTimestamp>2018-10-23.22:14:31.087</ModifiedTimestamp>
     </table>
     <table id="22" parent="8" name="Projects">
       <ObjectId>1090102924</ObjectId>
@@ -92,7 +92,7 @@
     <table id="24" parent="8" name="Students">
       <ObjectId>946102411</ObjectId>
       <CreatedTimestamp>2018-10-06.16:10:33.430</CreatedTimestamp>
-      <ModifiedTimestamp>2018-10-09.14:11:48.810</ModifiedTimestamp>
+      <ModifiedTimestamp>2018-10-23.21:56:38.253</ModifiedTimestamp>
     </table>
     <table id="25" parent="8" name="Users">
       <ObjectId>802101898</ObjectId>
@@ -110,34 +110,19 @@
       <DataType>varchar(150 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="28" parent="19" name="ds_periodo">
-      <Position>3</Position>
-      <DataType>varchar(50 char)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="29" parent="19" name="id_season">
+    <column id="28" parent="19" name="id_season">
       <Position>4</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="30" parent="19" name="id_student">
-      <Position>5</Position>
-      <DataType>int|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="31" parent="19" name="id_professor">
-      <Position>6</Position>
-      <DataType>int|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="32" parent="19" name="PK__Course__FB82D9EA9F13A0C1">
+    <index id="29" parent="19" name="PK__Course__FB82D9EA9F13A0C1">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_course</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <key id="33" parent="19" name="PK__Course__FB82D9EA9F13A0C1">
+    <key id="30" parent="19" name="PK__Course__FB82D9EA9F13A0C1">
       <ObjectId>1026102696</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-10-06.16:16:51</CreatedTimestamp>
@@ -146,7 +131,7 @@
       <UnderlyingIndexName>PK__Course__FB82D9EA9F13A0C1</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="34" parent="19" name="FK_Course_Season">
+    <foreign-key id="31" parent="19" name="FK_Course_Season">
       <ObjectId>1042102753</ObjectId>
       <CreatedTimestamp>2018-10-06.16:16:51</CreatedTimestamp>
       <ModifiedTimestamp>2018-10-06.17:13:38.887</ModifiedTimestamp>
@@ -157,47 +142,25 @@
       <RefKeyName>PK__Seasons__E1F8F3A7E6858B59</RefKeyName>
       <RefColNames>id_season</RefColNames>
     </foreign-key>
-    <foreign-key id="35" parent="19" name="FK_Course_Student">
-      <ObjectId>1058102810</ObjectId>
-      <CreatedTimestamp>2018-10-06.16:16:51</CreatedTimestamp>
-      <ModifiedTimestamp>2018-10-06.16:16:51</ModifiedTimestamp>
-      <ColNames>id_student</ColNames>
-      <RefTableId>946102411</RefTableId>
-      <RefSchemaName>teste</RefSchemaName>
-      <RefTableName>Students</RefTableName>
-      <RefKeyName>PK__Students__8D231D0938AA04F1</RefKeyName>
-      <RefColNames>id_student</RefColNames>
-    </foreign-key>
-    <foreign-key id="36" parent="19" name="FK_Course_Professor">
-      <ObjectId>1074102867</ObjectId>
-      <CreatedTimestamp>2018-10-06.16:16:51</CreatedTimestamp>
-      <ModifiedTimestamp>2018-10-06.16:16:51</ModifiedTimestamp>
-      <ColNames>id_professor</ColNames>
-      <RefTableId>898102240</RefTableId>
-      <RefSchemaName>teste</RefSchemaName>
-      <RefTableName>Professors</RefTableName>
-      <RefKeyName>PK__Professo__BB758483EA516F63</RefKeyName>
-      <RefColNames>id_professor</RefColNames>
-    </foreign-key>
-    <column id="37" parent="20" name="id_period">
+    <column id="32" parent="20" name="id_period">
       <Position>1</Position>
       <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="38" parent="20" name="nm_period">
+    <column id="33" parent="20" name="nm_period">
       <Position>2</Position>
       <DataType>varchar(60 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="39" parent="20" name="PK__Periods__1CDF36070E8D83E7">
+    <index id="34" parent="20" name="PK__Periods__1CDF36070E8D83E7">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_period</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <key id="40" parent="20" name="PK__Periods__1CDF36070E8D83E7">
+    <key id="35" parent="20" name="PK__Periods__1CDF36070E8D83E7">
       <ObjectId>850102069</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-10-06.15:54:28.887</CreatedTimestamp>
@@ -206,35 +169,35 @@
       <UnderlyingIndexName>PK__Periods__1CDF36070E8D83E7</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="41" parent="21" name="id_professor">
+    <column id="36" parent="21" name="id_professor">
       <Position>1</Position>
       <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="42" parent="21" name="cd_unique">
+    <column id="37" parent="21" name="cd_unique">
       <Position>2</Position>
       <DataType>varchar(20 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="43" parent="21" name="id_user">
+    <column id="38" parent="21" name="id_user">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="44" parent="21" name="PK__Professo__BB758483EA516F63">
+    <index id="39" parent="21" name="PK__Professo__BB758483EA516F63">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_professor</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <index id="45" parent="21" name="Professors_cd_unique_uindex">
+    <index id="40" parent="21" name="Professors_cd_unique_uindex">
       <Position>2</Position>
       <ColNames>cd_unique</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="46" parent="21" name="PK__Professo__BB758483EA516F63">
+    <key id="41" parent="21" name="PK__Professo__BB758483EA516F63">
       <ObjectId>914102297</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-10-06.16:08:36.407</CreatedTimestamp>
@@ -243,7 +206,7 @@
       <UnderlyingIndexName>PK__Professo__BB758483EA516F63</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="47" parent="21" name="FK_Professor_User">
+    <foreign-key id="42" parent="21" name="FK_Professor_User">
       <ObjectId>930102354</ObjectId>
       <CreatedTimestamp>2018-10-06.16:08:36.407</CreatedTimestamp>
       <ModifiedTimestamp>2018-10-06.16:08:36.407</ModifiedTimestamp>
@@ -254,45 +217,45 @@
       <RefKeyName>PK__Users__D2D146374AF2835A</RefKeyName>
       <RefColNames>id_user</RefColNames>
     </foreign-key>
-    <column id="48" parent="22" name="id_project">
+    <column id="43" parent="22" name="id_project">
       <Position>1</Position>
       <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="49" parent="22" name="nm_temaProject">
+    <column id="44" parent="22" name="nm_temaProject">
       <Position>2</Position>
       <DataType>varchar(250 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="50" parent="22" name="id_student">
+    <column id="45" parent="22" name="id_student">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="51" parent="22" name="id_professor">
+    <column id="46" parent="22" name="id_professor">
       <Position>4</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="52" parent="22" name="id_season">
+    <column id="47" parent="22" name="id_season">
       <Position>5</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="53" parent="22" name="pdf_project">
+    <column id="48" parent="22" name="pdf_project">
       <Position>6</Position>
       <DataType>varbinary(max)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="54" parent="22" name="PK__Projects__274AE1B358ACBBBD">
+    <index id="49" parent="22" name="PK__Projects__274AE1B358ACBBBD">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_project</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <key id="55" parent="22" name="PK__Projects__274AE1B358ACBBBD">
+    <key id="50" parent="22" name="PK__Projects__274AE1B358ACBBBD">
       <ObjectId>1106102981</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-10-06.16:21:45.727</CreatedTimestamp>
@@ -301,7 +264,7 @@
       <UnderlyingIndexName>PK__Projects__274AE1B358ACBBBD</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="56" parent="22" name="FK_Project_Student">
+    <foreign-key id="51" parent="22" name="FK_Project_Student">
       <ObjectId>1122103038</ObjectId>
       <CreatedTimestamp>2018-10-06.16:21:45.727</CreatedTimestamp>
       <ModifiedTimestamp>2018-10-06.16:21:45.727</ModifiedTimestamp>
@@ -312,7 +275,7 @@
       <RefKeyName>PK__Students__8D231D0938AA04F1</RefKeyName>
       <RefColNames>id_student</RefColNames>
     </foreign-key>
-    <foreign-key id="57" parent="22" name="FK_Project_Professor">
+    <foreign-key id="52" parent="22" name="FK_Project_Professor">
       <ObjectId>1138103095</ObjectId>
       <CreatedTimestamp>2018-10-06.16:21:45.727</CreatedTimestamp>
       <ModifiedTimestamp>2018-10-06.16:21:45.727</ModifiedTimestamp>
@@ -323,7 +286,7 @@
       <RefKeyName>PK__Professo__BB758483EA516F63</RefKeyName>
       <RefColNames>id_professor</RefColNames>
     </foreign-key>
-    <foreign-key id="58" parent="22" name="FK_Project_Season">
+    <foreign-key id="53" parent="22" name="FK_Project_Season">
       <ObjectId>1154103152</ObjectId>
       <CreatedTimestamp>2018-10-06.16:21:45.727</CreatedTimestamp>
       <ModifiedTimestamp>2018-10-06.17:09:21.953</ModifiedTimestamp>
@@ -334,34 +297,34 @@
       <RefKeyName>PK__Seasons__E1F8F3A7E6858B59</RefKeyName>
       <RefColNames>id_season</RefColNames>
     </foreign-key>
-    <column id="59" parent="23" name="id_season">
+    <column id="54" parent="23" name="id_season">
       <Position>1</Position>
       <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="60" parent="23" name="dt_inicioSeason">
+    <column id="55" parent="23" name="dt_inicioSeason">
       <Position>2</Position>
       <DataType>varchar(15 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="61" parent="23" name="dt_fimSeason">
+    <column id="56" parent="23" name="dt_fimSeason">
       <Position>3</Position>
       <DataType>varchar(15 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="62" parent="23" name="dt_deadlineProjeto">
+    <column id="57" parent="23" name="dt_deadlineProjeto">
       <Position>4</Position>
       <DataType>varchar(15 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="63" parent="23" name="PK__Seasons__E1F8F3A7E6858B59">
+    <index id="58" parent="23" name="PK__Seasons__E1F8F3A7E6858B59">
       <Position>1</Position>
       <ColNames>id_season</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <key id="64" parent="23" name="PK__Seasons__E1F8F3A7E6858B59">
+    <key id="59" parent="23" name="PK__Seasons__E1F8F3A7E6858B59">
       <ObjectId>882102183</ObjectId>
       <CreatedTimestamp>2018-10-06.15:56:07.493</CreatedTimestamp>
       <ModifiedTimestamp>2018-10-06.17:08:45.530</ModifiedTimestamp>
@@ -369,40 +332,45 @@
       <UnderlyingIndexName>PK__Seasons__E1F8F3A7E6858B59</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="65" parent="24" name="id_student">
+    <column id="60" parent="24" name="id_student">
       <Position>1</Position>
       <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="66" parent="24" name="cd_ra">
+    <column id="61" parent="24" name="cd_ra">
       <Position>2</Position>
       <DataType>varchar(25 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="67" parent="24" name="id_user">
+    <column id="62" parent="24" name="id_user">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="68" parent="24" name="id_period">
+    <column id="63" parent="24" name="id_period">
       <Position>4</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="69" parent="24" name="PK__Students__8D231D0938AA04F1">
+    <column id="64" parent="24" name="id_course">
+      <Position>5</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="65" parent="24" name="PK__Students__8D231D0938AA04F1">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_student</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <index id="70" parent="24" name="Students_cd_ra_uindex">
+    <index id="66" parent="24" name="Students_cd_ra_uindex">
       <Position>2</Position>
       <ColNames>cd_ra</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="71" parent="24" name="PK__Students__8D231D0938AA04F1">
+    <key id="67" parent="24" name="PK__Students__8D231D0938AA04F1">
       <ObjectId>962102468</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-10-06.16:10:33.430</CreatedTimestamp>
@@ -411,7 +379,7 @@
       <UnderlyingIndexName>PK__Students__8D231D0938AA04F1</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="72" parent="24" name="FK_Student_User">
+    <foreign-key id="68" parent="24" name="FK_Student_User">
       <ObjectId>978102525</ObjectId>
       <CreatedTimestamp>2018-10-06.16:10:33.430</CreatedTimestamp>
       <ModifiedTimestamp>2018-10-06.16:10:33.430</ModifiedTimestamp>
@@ -422,7 +390,7 @@
       <RefKeyName>PK__Users__D2D146374AF2835A</RefKeyName>
       <RefColNames>id_user</RefColNames>
     </foreign-key>
-    <foreign-key id="73" parent="24" name="FK_Student_Period">
+    <foreign-key id="69" parent="24" name="FK_Student_Period">
       <ObjectId>994102582</ObjectId>
       <CreatedTimestamp>2018-10-06.16:10:33.430</CreatedTimestamp>
       <ModifiedTimestamp>2018-10-06.16:10:33.430</ModifiedTimestamp>
@@ -433,45 +401,56 @@
       <RefKeyName>PK__Periods__1CDF36070E8D83E7</RefKeyName>
       <RefColNames>id_period</RefColNames>
     </foreign-key>
-    <column id="74" parent="25" name="id_user">
+    <foreign-key id="70" parent="24" name="FK_Student_Course">
+      <ObjectId>1298103665</ObjectId>
+      <CreatedTimestamp>2018-10-23.21:56:38.253</CreatedTimestamp>
+      <ModifiedTimestamp>2018-10-23.21:56:38.253</ModifiedTimestamp>
+      <ColNames>id_course</ColNames>
+      <RefTableId>1010102639</RefTableId>
+      <RefSchemaName>teste</RefSchemaName>
+      <RefTableName>Courses</RefTableName>
+      <RefKeyName>PK__Course__FB82D9EA9F13A0C1</RefKeyName>
+      <RefColNames>id_course</RefColNames>
+    </foreign-key>
+    <column id="71" parent="25" name="id_user">
       <Position>1</Position>
       <SequenceIdentity>1</SequenceIdentity>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="75" parent="25" name="nm_user">
+    <column id="72" parent="25" name="nm_user">
       <Position>2</Position>
       <DataType>varchar(150 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="76" parent="25" name="nm_email_login">
+    <column id="73" parent="25" name="nm_email_login">
       <Position>3</Position>
       <DataType>varchar(200 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="77" parent="25" name="nr_senha_user">
+    <column id="74" parent="25" name="nr_senha_user">
       <Position>4</Position>
       <DataType>varchar(30 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="78" parent="25" name="tp_user">
+    <column id="75" parent="25" name="tp_user">
       <Position>5</Position>
       <DataType>varchar(25 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="79" parent="25" name="PK__Users__D2D146374AF2835A">
+    <index id="76" parent="25" name="PK__Users__D2D146374AF2835A">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_user</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <index id="80" parent="25" name="Users_nm_email_login_uindex">
+    <index id="77" parent="25" name="Users_nm_email_login_uindex">
       <Position>4</Position>
       <ColNames>nm_email_login</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="81" parent="25" name="PK__Users__D2D146374AF2835A">
+    <key id="78" parent="25" name="PK__Users__D2D146374AF2835A">
       <ObjectId>818101955</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-10-06.15:52:26.287</CreatedTimestamp>
