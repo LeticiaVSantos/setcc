@@ -1,7 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@ page import="br.com.fatecpg.setcc.Student" %>
-<%@ page import="br.com.fatecpg.setcc.Professor" %>
-<%@ page import="br.com.fatecpg.setcc.Period" %>
+<%@ page import="br.com.fatecpg.setcc.*" %>
 <%
     String pathForm = request.getContextPath();
     String error = null;
@@ -39,6 +37,8 @@
             if (request.getParameter("alunoRA") != null) alunoRA = request.getParameter("alunoRA");
             String professorCD = null;
             if (request.getParameter("professorCD") != null) professorCD = request.getParameter("professorCD");
+            Long curso = null;
+            if (request.getParameter("curso") != null) curso = Long.parseLong(request.getParameter("curso"));
             Long periodo = null;
             if (request.getParameter("periodo") != null) periodo = Long.parseLong(request.getParameter("periodo"));
             try {
@@ -56,7 +56,7 @@
                     }
 
                     try {
-                        Student.addStudent(alunoRA, idUser, periodo);
+                        Student.addStudent(alunoRA, idUser, periodo, curso);
                     } catch (Exception e) {
                         /*error = e.getMessage();*/
                     }
@@ -181,7 +181,7 @@
 
             <label class="label-input100" for="password">Senha *</label>
             <div class="wrap-input100 validate-input">
-                <input id="password" class="input100" type="password" name="pass" placeholder="******************">
+                <input id="password" class="input100" type="password" name="pass" placeholder="************">
                 <span class="focus-input100"></span>
             </div>
 
@@ -189,6 +189,16 @@
             <label class="label-input100 validate-input" for="raAluno">RA *</label>
             <div class="wrap-input100">
                 <input required id="raAluno" class="input100" type="text" name="alunoRA" placeholder="Ex: 1290481822001" value="<%if(request.getParameter("alunoRA") != null) { %> <%=request.getParameter("alunoRA")%> <% } %>">
+                <span class="focus-input100"></span>
+            </div>
+
+            <label class="label-input100" for="curso">Curso *</label>
+            <div class="wrap-input100 validate-input">
+                <select id="curso" class="input100" name="curso">
+                    <% for (Course c: Course.getCourses()) { %>
+                    <option value="<%=c.getId()%>"><%=c.getNameCourse()%></option>
+                    <% } %>
+                </select>
                 <span class="focus-input100"></span>
             </div>
 

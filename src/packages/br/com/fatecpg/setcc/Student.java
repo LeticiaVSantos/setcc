@@ -7,12 +7,14 @@ public class Student {
     private String RA;
     private Long idUser;
     private Long idPeriod;
+    private Long idCourse;
 
-    public Student(Long id, String RA, Long idUser, Long idPeriod) {
+    public Student(Long id, String RA, Long idUser, Long idPeriod, Long idCourse) {
         this.id = id;
         this.RA = RA;
         this.idUser = idUser;
         this.idPeriod = idPeriod;
+        this.idCourse = idCourse;
     }
 
     public Long getId() {
@@ -47,6 +49,14 @@ public class Student {
         this.idPeriod = idPeriod;
     }
 
+    public Long getIdCourse() {
+        return idCourse;
+    }
+
+    public void setIdCourse(Long idCourse) {
+        this.idCourse = idCourse;
+    }
+
     public static ArrayList<Student> getStudents() throws Exception {
         String SQL = "SELECT * FROM teste.students";
         ArrayList<Student> students = new ArrayList<>();
@@ -59,6 +69,7 @@ public class Student {
                     ,(String) row[1]
                     , new Long((int)row[2])
                     , new Long((int)row[3])
+                    , new Long((int)row[4])
             );
 
             students.add(s);
@@ -69,13 +80,14 @@ public class Student {
 
     }
 
-    public static void addStudent(String ra, Long idUser, Long idPeriod) throws Exception {
+    public static void addStudent(String ra, Long idUser, Long idPeriod, Long idCourse) throws Exception {
         String SQL = "INSERT INTO teste.students VALUES (" +
                 " '" + ra +
                 "', ?" +
+                ", ?" +
                 ", ?)";
 
-        Object parameters[] = {idUser, idPeriod};
+        Object parameters[] = {idUser, idPeriod, idCourse};
 
         AzureDatabaseConnector.execute(SQL, parameters);
     }
