@@ -30,7 +30,7 @@
                     <li class="menu-active"><a href="<%=path%>/index.jsp">Home</a></li>
 
                     <%if(user.getTipoDeUsuario().equals("Administrador")){%>
-                    <li class="menu-has-children"><a href="">Usuários</a>
+                    <li class="menu-has-children"><a href="#">Usuários</a>
                         <ul>
                             <li><a href="<%=path%>/userForm.jsp">Cadastrar</a></li>
                             <li><a href="<%=path%>/userList.jsp">Listar (Alterar/Desativar)</a></li>
@@ -39,7 +39,7 @@
                     <%}%>
 
                     <%if(user.getTipoDeUsuario().equals("Aluno")){%>
-                    <li class="menu-has-children"><a href="">Projetos</a>
+                    <li class="menu-has-children"><a href="#">Projetos</a>
                         <ul>
                             <li><a href="<%=path%>/#">Cadastrar</a></li>
                             <li><a href="<%=path%>/#">Listar (Alterar/Desativar)</a></li>
@@ -48,7 +48,7 @@
                     <%}%>
 
                     <%if(user.getTipoDeUsuario().equals("Administrador")){%>
-                    <li class="menu-has-children"><a href="">Cursos</a>
+                    <li class="menu-has-children"><a href="#">Cursos</a>
                         <ul>
                             <li><a href="<%=path%>/courseForm.jsp">Cadastrar</a></li>
                             <li><a href="<%=path%>/courseList.jsp">Listar (Alterar/Desativar)</a></li>
@@ -57,7 +57,7 @@
                     <%}%>
 
                     <%if(user.getTipoDeUsuario().equals("Administrador")){%>
-                    <li class="menu-has-children"><a href="">Períodos</a>
+                    <li class="menu-has-children"><a href="#">Períodos</a>
                         <ul>
                             <li><a href="<%=path%>/periodForm.jsp">Cadastrar</a></li>
                             <li><a href="<%=path%>/periodList.jsp">Listar (Alterar/Desativar)</a></li>
@@ -66,7 +66,7 @@
                     <%}%>
 
                     <%if(user.getTipoDeUsuario().equals("Administrador")){%>
-                    <li class="menu-has-children"><a href="">Temporadas</a>
+                    <li class="menu-has-children"><a href="#">Temporadas</a>
                         <ul>
                             <li><a href="<%=path%>/seasonForm.jsp">Cadastrar</a></li>
                             <li><a href="<%=path%>/seasonList.jsp">Listar (Alterar/Desativar)</a></li>
@@ -74,7 +74,7 @@
                     </li>
                     <%}%>
 
-                    <li class="menu-has-children"><a href="">Olá, <%=user.getName()%></a>
+                    <li class="menu-has-children"><a href="#">Olá, <%=user.getName()%></a>
                         <ul>
                             <li><a href="<%=path%>/#">Editar Perfil</a></li>
                             <li>

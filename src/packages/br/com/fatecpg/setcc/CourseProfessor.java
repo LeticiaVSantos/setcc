@@ -59,11 +59,11 @@ public class CourseProfessor {
     }
 
     public static void addCourseProfessor(Long idProfessor, Long idCourse) throws Exception {
-        String SQL = "INSERT INTO teste.courseProfessors VALUES (" +
-                "?" +
-                ", ?)";
+        String SQL = "INSERT INTO teste.CourseProfessor VALUES (" + idProfessor + ", " + idCourse + ")";
+                /*"?" +
+                ", ?)";*/
 
-        Object parameters[] = {idProfessor, idCourse};
+        Object parameters[] = {};
 
         AzureDatabaseConnector.execute(SQL, parameters);
     }

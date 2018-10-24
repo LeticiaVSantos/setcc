@@ -80,7 +80,13 @@
                     }
                 }
 
-                if(error == null) response.sendRedirect(pathForm + "userList.jsp");
+                if(error == null) {
+                    if(tipoDeUsuario.equals("Professor")) {
+                        response.sendRedirect(pathForm + "/professorForm.jsp?email=" + login);
+                    } else {
+                        response.sendRedirect(pathForm + "/login.jsp#entrar");
+                    }
+                }
                 /*else response.sendRedirect(request.getRequestURI());*/
             } catch (Exception e) {
                 /*error = e.getMessage();*/

@@ -1,16 +1,35 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ page import="br.com.fatecpg.setcc.Course" %>
 <%@ page import="br.com.fatecpg.setcc.CourseProfessor" %>
+<%@ page import="br.com.fatecpg.setcc.Professor" %>
 
 <%
     String pathForm = request.getContextPath();
     /*String error = null;*/
 
     if (request.getParameter("formNewCourseProfessor") != null) {
+        Long idUser;
+        Long idProfessor = null;
+        Long idCourse = Long.parseLong(request.getParameter("curso"));
+        String login = request.getParameter("email");
 
+        for (User u : User.getUsers()) {
+            if (u.getLogin().equals(login)) {
+                idUser = Long.parseLong(u.getId().toString());
+
+                for (Professor p : Professor.getProfessors()) {
+                    if(p.getIdUser().equals(idUser)) {
+                        idProfessor = Long.parseLong(p.getId().toString());
+                        break;
+                    }
+                }
+
+                break;
+            }
+        }
 
         try {
-            CourseProfessor.addCourseProfessor();
+            CourseProfessor.addCourseProfessor(idProfessor, idCourse);
             response.sendRedirect(pathForm + "/userList.jsp");
         } catch (Exception e) {
             /*error = e.getMessage();*/
@@ -30,7 +49,7 @@
 </head>
 <body>
 
-<% if (session.getAttribute("user") == null) { %>
+<% if (false) { %> <%--session.getAttribute("user") == null--%>
 <% response.sendRedirect(pathForm + "/login.jsp"); %>
 <% } else { %>
 
@@ -64,6 +83,7 @@
             </div>
 
             <div class="container-contact100-form-btn">
+                <input type="hidden" name="email" value="<%=request.getParameter("email")%>">
                 <button type="submit" class="contact100-form-btn" name="formNewCourseProfessor">
 						<span>
 							Cadastrar
