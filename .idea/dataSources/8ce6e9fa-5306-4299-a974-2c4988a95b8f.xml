@@ -29,7 +29,7 @@
     </schema>
     <schema id="8" parent="3" name="teste">
       <ObjectId>5</ObjectId>
-      <IntrospectionTimestamp>2018-10-23.23:38:23.453</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2018-10-24.13:55:57.960</IntrospectionTimestamp>
       <Visible>1</Visible>
     </schema>
     <schema id="9" parent="3" name="setcc">
@@ -67,7 +67,7 @@
     <table id="19" parent="8" name="CourseProfessor">
       <ObjectId>1314103722</ObjectId>
       <CreatedTimestamp>2018-10-23.23:38:15.783</CreatedTimestamp>
-      <ModifiedTimestamp>2018-10-23.23:38:15.783</ModifiedTimestamp>
+      <ModifiedTimestamp>2018-10-24.13:55:19.220</ModifiedTimestamp>
     </table>
     <table id="20" parent="8" name="Courses">
       <ObjectId>1010102639</ObjectId>
@@ -104,35 +104,34 @@
       <CreatedTimestamp>2018-10-06.15:52:26.283</CreatedTimestamp>
       <ModifiedTimestamp>2018-10-09.14:05:04.740</ModifiedTimestamp>
     </table>
-    <column id="27" parent="19" name="id_courseprofessor">
-      <Position>1</Position>
-      <DataType>int|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="28" parent="19" name="id_professor">
+    <column id="27" parent="19" name="id_professor">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="29" parent="19" name="id_course">
+    <column id="28" parent="19" name="id_course">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="30" parent="19" name="PK__CoursePr__9AD53F7AB4F75D3C">
+    <column id="29" parent="19" name="id_courseProfessor">
+      <Position>4</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="30" parent="19" name="CourseProfessor_pk">
       <Position>1</Position>
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id_courseprofessor</ColNames>
+      <ColNames>id_courseProfessor</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <key id="31" parent="19" name="PK__CoursePr__9AD53F7AB4F75D3C">
-      <ObjectId>1330103779</ObjectId>
-      <NameSurrogate>1</NameSurrogate>
-      <CreatedTimestamp>2018-10-23.23:38:15.783</CreatedTimestamp>
-      <ModifiedTimestamp>2018-10-23.23:38:15.783</ModifiedTimestamp>
-      <ColNames>id_courseprofessor</ColNames>
-      <UnderlyingIndexName>PK__CoursePr__9AD53F7AB4F75D3C</UnderlyingIndexName>
+    <key id="31" parent="19" name="CourseProfessor_pk">
+      <ObjectId>1378103950</ObjectId>
+      <CreatedTimestamp>2018-10-24.13:55:19.220</CreatedTimestamp>
+      <ModifiedTimestamp>2018-10-24.13:55:19.220</ModifiedTimestamp>
+      <ColNames>id_courseProfessor</ColNames>
+      <UnderlyingIndexName>CourseProfessor_pk</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
     <foreign-key id="32" parent="19" name="FK_CourseProfessor_Professor">

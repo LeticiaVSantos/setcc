@@ -43,7 +43,7 @@
 <h1 class="text-white">
     Cadastro de Temporadas
 </h1>
-<p class="text-white link-nav"><a href="index.jsp">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="periodForm.jsp"> Cadastro de Temporada</a></p>
+<p class="text-white link-nav"><a href="index.jsp">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="seasonForm.jsp"> Cadastro de Temporada</a></p>
 <%@include file="WEB-INF/jspf/banner-page-down.jspf"%>
 <!-- Banner page up - end -->
 
