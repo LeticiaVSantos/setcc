@@ -6,11 +6,27 @@
 <%
     String pathForm = request.getContextPath();
     /*String error = null;*/
+    boolean ocultar = false;
+    Long quantidadeCursos = (long)3;
+    Long[] arrayCourse = null;
+
+    if (request.getParameter("qtdCursos") != null) {
+        quantidadeCursos = Long.parseLong(request.getParameter("qtdCursos"));
+        arrayCourse = new Long[quantidadeCursos.intValue()];
+        ocultar = true;
+    }
+
+
 
     if (request.getParameter("formNewCourseProfessor") != null) {
+
+        for (int i = 0; i < quantidadeCursos.intValue(); i++) {
+            arrayCourse[i] = Long.parseLong(request.getParameter("curso"+i));
+        }
+
         Long idUser;
         Long idProfessor = null;
-        Long idCourse = Long.parseLong(request.getParameter("curso"));
+        /*Long idCourse = Long.parseLong(request.getParameter("curso"));*/
         String login = request.getParameter("email");
 
         for (User u : User.getUsers()) {
@@ -29,7 +45,9 @@
         }
 
         try {
-            CourseProfessor.addCourseProfessor(idProfessor, idCourse);
+            for (int i = 0; i < arrayCourse.length; i++) {
+                CourseProfessor.addCourseProfessor(idProfessor, arrayCourse[i]);
+            }
             response.sendRedirect(pathForm + "/userList.jsp");
         } catch (Exception e) {
             /*error = e.getMessage();*/
@@ -65,6 +83,40 @@
 <%@include file="WEB-INF/jspf/banner-page-down.jspf"%>
 <!-- Banner page up - end -->
 
+<%if(!ocultar) {%>
+<div class="container-contact100"><!-- Verificar tipo de Usuário -->
+    <div class="wrap-contact100">
+        <form class="contact100-form validate-form rs1" action="<%=pathForm%>/professorForm.jsp" method="post">
+            <span class="contact100-form-title">
+                Selecione a Quantidade de Cursos Lecionados
+                <p>Ex: Análise e Desenvolvimento de Sistemas, Comércio Exterior etc.</p>
+            </span>
+
+            <label class="label-input100" for="quantidadeCursos">Quantidade</label>
+            <div class="wrap-input100 validate-input">
+                <select id="quantidadeCursos" class="input100" name="qtdCursos" class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="container-contact100-form-btn">
+                <input type="hidden" name="email" value="<%=request.getParameter("email")%>">
+                <button type="submit" class="contact100-form-btn" name="cursos">
+						<span>
+							Selecionar
+							<i class="zmdi zmdi-arrow-right m-l-8"></i>
+						</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<%} else {%>
+
 <div class="container-contact100"><!-- Formulário de Cadastro -->
     <div class="wrap-contact100">
         <form class="contact100-form validate-form">
@@ -74,16 +126,19 @@
 
             <label class="label-input100" for="curso">Cursos Lecionados *</label>
             <div class="wrap-input100 validate-input">
-                <select id="curso" class="input100" name="curso">
+                <% for (int i = 0; i < quantidadeCursos; i++) { %>
+                <select id="curso" class="input100" name="curso<%=i%>">
                     <% for (Course c: Course.getCourses()) { %>
                     <option value="<%=c.getId()%>"><%=c.getNameCourse()%></option>
                     <% } %>
                 </select>
+                <% } %>
                 <span class="focus-input100"></span>
             </div>
 
             <div class="container-contact100-form-btn">
                 <input type="hidden" name="email" value="<%=request.getParameter("email")%>">
+                <input type="hidden" name="qtdCursos" value="<%=request.getParameter("qtdCursos")%>">
                 <button type="submit" class="contact100-form-btn" name="formNewCourseProfessor">
 						<span>
 							Cadastrar
@@ -94,6 +149,7 @@
         </form>
     </div>
 </div>
+<% } %>
 
 <% } %>
 
