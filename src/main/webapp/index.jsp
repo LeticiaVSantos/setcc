@@ -73,7 +73,7 @@
 						<h4>Períodos</h4>
 					</a>
 					<p>
-						Aqui você pode cadastrar, consultar, alterar ou desativar um período. Geralmente o padrão é Matutino, Vespertino e Noturno.
+						Aqui você pode cadastrar, consultar, alterar ou desativar um período, Matutino, Vespertino e Noturno.
 					</p>
 				</div>
 			</div>
@@ -84,7 +84,7 @@
 						<h4>Projetos</h4>
 					</a>
 					<p>
-						Aqui é onde você pode submeter a sua monografia, artigo ou documentação para o seu orientador. O formato de documento aceito é o PDF.
+						Aqui é onde você pode submeter a sua monografia, artigo ou documentação para o seu orientador.
 					</p>
 				</div>
 			</div>
@@ -107,7 +107,6 @@
 					</a>
 					<p>
 						Aqui você pode realizar a manutenção dos cursos disponiveis na FATEC Praia Grande.
-						Ex: Análise e Desenvolvimento de Sistemas, Comércio Exterior e Gestão Empresarial.
 					</p>
 				</div>
 			</div>
