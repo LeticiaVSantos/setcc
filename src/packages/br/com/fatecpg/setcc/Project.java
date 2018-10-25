@@ -8,9 +8,9 @@ public class Project {
     private Long idStudent;
     private Long idProfessor;
     private Long idSeason;
-    private Byte[] pdfProject;
-
-    public Project(Long id, String name, Long idStudent, Long idProfessor, Long idSeason, Byte[] pdfProject) {
+    private String pdfProject;
+    
+    public Project(Long id, String name, Long idStudent, Long idProfessor, Long idSeason, String pdfProject) {
         this.id = id;
         this.name = name;
         this.idStudent = idStudent;
@@ -59,11 +59,11 @@ public class Project {
         this.idSeason = idSeason;
     }
 
-    public Byte[] getPdfProject() {
+    public String getPdfProject() {
         return pdfProject;
     }
 
-    public void setPdfProject(Byte[] pdfProject) {
+    public void setPdfProject(String pdfProject) {
         this.pdfProject = pdfProject;
     }
 
@@ -80,7 +80,7 @@ public class Project {
                     , new Long((int)row[2])
                     , new Long((int)row[3])
                     , new Long((int)row[4])
-                    , (Byte[]) row[5]
+                    , (String) row[5]
             );
 
             projects.add(p);
@@ -91,7 +91,7 @@ public class Project {
 
     }
 
-    public static void addProject(String name, Long idStudent, Long idProfessor, Long idSeason, Byte[] pdfProject) {
+    public static void addProject(String name, Long idStudent, Long idProfessor, Long idSeason, String pdfProject) {
         String SQL = "INSERT INTO teste.projects VALUES (" +
                 " ?" +
                 ", ?" +
@@ -109,7 +109,7 @@ public class Project {
         }
     }
 
-    public static void altProject(Long id, String name, Long idStudent, Long idProfessor, Long idSeason, Byte[] pdfProject) {
+    public static void altProject(Long id, String name, Long idStudent, Long idProfessor, Long idSeason, String pdfProject) {
         String SQL = "UPDATE teste.projects SET " +
                 "nm_temaProject = '" + name +
                 "', id_student = " + idStudent +
