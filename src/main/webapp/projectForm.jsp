@@ -1,17 +1,19 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-    <%@ page import="br.com.fatecpg.setcc.Project" %>
+<%@ page import="br.com.fatecpg.setcc.Project" %>
 <%@ page import="br.com.fatecpg.setcc.User" %>
 <%@ page import="br.com.fatecpg.setcc.Season" %>
+<%@ page import="java.io.File" %>
+<%@ page import="java.io.FileInputStream" %>
 <%
     String pathForm = request.getContextPath();
     /*String error = null;*/
 
     if (request.getParameter("formNewProject") != null) {
         String tema = request.getParameter("tema");
-        long integrantes = Long.parseLong(request.getParameter("integrantes"));
-        long orientador = Long.parseLong(request.getParameter("orientador"));
-        long season = Long.parseLong(request.getParameter("season"));
-
+        Long integrantes = Long.parseLong(request.getParameter("integrantes"));
+        Long orientador = Long.parseLong(request.getParameter("orientador"));
+        Long season = Long.parseLong(request.getParameter("season"));
+        String pdf = request.getParameter("pdfTCC");
 
         try {
             Project.addProject(tema, integrantes, orientador, season, pdf);
@@ -93,9 +95,9 @@
                 <span class="focus-input100"></span>
             </div>
 
-            <label class="label-input100" for="pdf">Projeto *</label>
+            <label class="label-input100" for="pdf">Link do Projeto em PDF *</label>
             <div class="wrap-input100 validate-input">
-                <input id="pdf" class="input100" type="file" name="pdfTCC">
+                <input id="pdf" class="input100" type="text" name="pdfTCC">
                 <span class="focus-input100"></span>
             </div>
 

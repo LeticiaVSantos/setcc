@@ -29,7 +29,7 @@
     </schema>
     <schema id="8" parent="3" name="teste">
       <ObjectId>5</ObjectId>
-      <IntrospectionTimestamp>2018-10-24.17:28:50.753</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2018-10-24.23:48:22.197</IntrospectionTimestamp>
       <Visible>1</Visible>
     </schema>
     <schema id="9" parent="3" name="setcc">
@@ -87,7 +87,7 @@
     <table id="23" parent="8" name="Projects">
       <ObjectId>1090102924</ObjectId>
       <CreatedTimestamp>2018-10-06.16:21:45.723</CreatedTimestamp>
-      <ModifiedTimestamp>2018-10-06.18:39:34.533</ModifiedTimestamp>
+      <ModifiedTimestamp>2018-10-24.23:48:03.933</ModifiedTimestamp>
     </table>
     <table id="24" parent="8" name="Seasons">
       <ObjectId>866102126</ObjectId>
@@ -302,7 +302,7 @@
     </column>
     <column id="56" parent="23" name="pdf_project">
       <Position>6</Position>
-      <DataType>varbinary(max)|0s</DataType>
+      <DataType>varchar(max)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <index id="57" parent="23" name="PK__Projects__274AE1B358ACBBBD">
