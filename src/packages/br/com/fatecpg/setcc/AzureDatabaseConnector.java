@@ -17,7 +17,9 @@ public class AzureDatabaseConnector{
                     "encrypt=true;" +
                     "trustServerCertificate=false;" +
                     "hostNameInCertificate=*.database.windows.net;" +
-                    "loginTimeout=30;";
+                    "loginTimeout=30;" +
+                    "useUnicode=true;" +
+                    "characterEncoding=UTF-8";
 
     public static void execute(String SQL, @org.jetbrains.annotations.NotNull Object[] parameters) throws Exception {
         ArrayList<Object[]> list = new ArrayList<>();
