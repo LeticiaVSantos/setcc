@@ -1,9 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@ page import="br.com.fatecpg.setcc.Project" %>
-<%@ page import="br.com.fatecpg.setcc.User" %>
-<%@ page import="br.com.fatecpg.setcc.Season" %>
-<%@ page import="java.io.File" %>
-<%@ page import="java.io.FileInputStream" %>
+<%@ page import="br.com.fatecpg.setcc.*" %>
 <%
     String pathForm = request.getContextPath();
     /*String error = null;*/
@@ -14,6 +10,18 @@
         Long orientador = Long.parseLong(request.getParameter("orientador"));
         Long season = Long.parseLong(request.getParameter("season"));
         String pdf = request.getParameter("pdfTCC");
+
+        for (Student s : Student.getStudents()){
+            if (s.getIdUser().equals(integrantes)){
+                integrantes = s.getId().longValue();
+            }
+        }
+
+        for (Professor p : Professor.getProfessors()){
+            if (p.getIdUser().equals(orientador)){
+                orientador = p.getId().longValue();
+            }
+        }
 
         try {
             Project.addProject(tema, integrantes, orientador, season, pdf);

@@ -76,7 +76,7 @@
 
                     <li class="menu-has-children"><a href="#">Olá, <%=user.getName()%></a>
                         <ul>
-                            <li><a href="<%=path%>/#">Editar Perfil</a></li>
+                            <li><a href="<%=path%>/userList.jsp?formAlterTable=1&idALT=<%=user.getId()%>&nameALT=<%=user.getName()%>&emailALT=<%=user.getLogin()%>&roleALT=<%=user.getTipoDeUsuario()%>">Editar Perfil</a></li>
                             <li>
                                 <form method="post">
                                     <input class="genric-btn danger small" type="submit" name="formLogoff" value=" Encerrar Sessão ">
