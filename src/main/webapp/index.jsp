@@ -6,7 +6,6 @@
 <html lang="pt-br" class="no-js">
 <head>
 	<!-- Meta, Font e CSS -->
-	<link rel="shortcut icon" href="/imgens/icons_login/favicon.ico">
 	<%@include file="WEB-INF/jspf/head.jspf"%>
 	<!-- Site Title -->
 	<title>Home - SETCC</title>
