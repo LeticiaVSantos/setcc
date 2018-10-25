@@ -11,13 +11,27 @@
 
     if (request.getParameter("formUpdateProject") != null) {
         long id = Long.parseLong(request.getParameter("idALT"));
-        String tema = request.getParameter("nameALT");
+        String tema = request.getParameter("temaALT");
         long integrantes = Long.parseLong(request.getParameter("integrantesALT"));
         long orientador = Long.parseLong(request.getParameter("orientadorALT"));
         long season = Long.parseLong(request.getParameter("seasonALT"));
         String pdf = request.getParameter("pdfALT");
 
         try {
+            for (Student s : Student.getStudents()){
+                if (s.getIdUser().equals(integrantes)){
+                    integrantes = s.getId().longValue();
+                    break;
+                }
+            }
+
+            for (Professor p : Professor.getProfessors()){
+                if (p.getIdUser().equals(orientador)){
+                    orientador = p.getId().longValue();
+                    break;
+                }
+            }
+
             Project.altProject(id, tema, integrantes, orientador, season, pdf);
 
             response.sendRedirect(pathList + "/projectList.jsp");
@@ -29,7 +43,7 @@
     if (request.getParameter("formDeleteProject") != null) {
         try {
             long idRM = Long.parseLong(request.getParameter("idRM"));
-            Period.removePeriod(idRM);
+            Project.removeProject(idRM);
             response.sendRedirect(request.getRequestURI());
         } catch (Exception e) {
             /*error = e.getMessage();*/
@@ -45,7 +59,7 @@
     <!-- CSS Table -->
     <%@include file="WEB-INF/jspf/head-table.jspf"%>
     <!-- Site Title -->
-    <title>Lista de Períodos - SETCC</title>
+    <title>Lista de Projetos - SETCC</title>
 </head>
 <body>
 
@@ -94,9 +108,10 @@
                         <td class="column100 column1" data-column="column1"><%= p.getIdSeason() %></td>
                         <td class="column100 column1" data-column="column1"><%= p.getPdfProject() %></td>
                         <td class="column100 column5" data-column="column3">
-                            <form action="<%=pathList%>/periodList.jsp#jumpAlt" method="post">
+                            <form action="<%=pathList%>/projectList.jsp#jumpAlt" method="post">
                                 <input type="hidden" name="idALT" value="<%= p.getId() %>"/>
-                                <input type="hidden" name="nameALT" value="<%= p.getName() %>"/>
+                                <input type="hidden" name="temaALT" value="<%= p.getName() %>"/>
+                                <input type="hidden" name="pdfALT" value="<%= p.getPdfProject() %>"/>
                                 <input type="submit" name="formAlterTable" value="Alterar" class="genric-btn success"/>
                             </form>
                         </td>
@@ -140,7 +155,7 @@
                                 <td class="column100 column1" data-column="column1">
                                     <% for (User u: User.getUsers()) { %>
                                     <% if (u.getTipoDeUsuario().equals("Aluno")) {%>
-                                    <input class="input100" type="checkbox" name="integranteALT" value="<%=u.getId()%>"> <%=u.getName()%><br/>
+                                    <input class="input100" type="checkbox" name="integrantesALT" value="<%=u.getId()%>"> <%=u.getName()%><br/>
                                     <% } %>
                                     <% } %>
                                 </td>

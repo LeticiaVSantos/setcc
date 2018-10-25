@@ -14,12 +14,14 @@
         for (Student s : Student.getStudents()){
             if (s.getIdUser().equals(integrantes)){
                 integrantes = s.getId().longValue();
+                break;
             }
         }
 
         for (Professor p : Professor.getProfessors()){
             if (p.getIdUser().equals(orientador)){
                 orientador = p.getId().longValue();
+                break;
             }
         }
 

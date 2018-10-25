@@ -117,6 +117,14 @@ public class Project {
                 ", id_season = " + idSeason +
                 ", pdf_project = '" + pdfProject + "'" +
                 " WHERE id_project = " + id;
+
+        Object parameters[] = {};
+
+        try {
+            AzureDatabaseConnector.execute(SQL, parameters);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void removeProject(Long id) throws Exception {
