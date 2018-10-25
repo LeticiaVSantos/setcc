@@ -79,7 +79,7 @@
             <div class="wrap-input100 validate-input">
                 <% for (User u: User.getUsers()) { %>
                 <% if (u.getTipoDeUsuario().equals("Aluno")) {%>
-                <input id="aluno" class="input100" type="checkbox" name="integrantes" value="<%=u.getId()%>"> <%=u.getName()%><br/>
+                <input id="aluno" class="input100" type="radio" name="integrantes" value="<%=u.getId()%>"> <%=u.getName()%><br/>
                 <% } %>
                 <% } %>
                 <span class="focus-input100"></span>
@@ -89,7 +89,7 @@
             <div class="wrap-input100 validate-input">
                 <% for (User u: User.getUsers()) { %>
                 <% if (u.getTipoDeUsuario().equals("Professor")) {%>
-                <input id="professor" class="input100" type="checkbox" name="orientador" value="<%=u.getId()%>"> <%=u.getName()%><br/>
+                <input id="professor" class="input100" type="radio" name="orientador" value="<%=u.getId()%>"> <%=u.getName()%><br/>
                 <% } %>
                 <% } %>
                 <span class="focus-input100"></span>

@@ -155,7 +155,7 @@
                                 <td class="column100 column1" data-column="column1">
                                     <% for (User u: User.getUsers()) { %>
                                     <% if (u.getTipoDeUsuario().equals("Aluno")) {%>
-                                    <input class="input100" type="checkbox" name="integrantesALT" value="<%=u.getId()%>"> <%=u.getName()%><br/>
+                                    <input class="input100" type="radio" name="integrantesALT" value="<%=u.getId()%>"> <%=u.getName()%><br/>
                                     <% } %>
                                     <% } %>
                                 </td>
@@ -163,7 +163,7 @@
                                 <td class="column100 column1" data-column="column1">
                                     <% for (User u: User.getUsers()) { %>
                                     <% if (u.getTipoDeUsuario().equals("Professor")) {%>
-                                    <input class="input100" type="checkbox" name="orientadorALT" value="<%=u.getId()%>"> <%=u.getName()%><br/>
+                                    <input class="input100" type="radio" name="orientadorALT" value="<%=u.getId()%>"> <%=u.getName()%><br/>
                                     <% } %>
                                     <% } %>
                                 </td>
