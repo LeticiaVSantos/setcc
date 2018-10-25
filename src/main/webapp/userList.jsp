@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ page import="br.com.fatecpg.setcc.Professor" %>
 <%@ page import="br.com.fatecpg.setcc.Student" %>
+<%@ page import="br.com.fatecpg.setcc.CourseProfessor" %>
 <%
     String pathList = request.getContextPath();
     /*String error = null;*/
@@ -29,8 +30,13 @@
         try {
             long idRM = Long.parseLong(request.getParameter("idRM"));
             String papel = request.getParameter("papel");
+
             if (papel.equals("Aluno")) Student.removeStudent(idRM);
-            if (papel.equals("Professor")) Professor.removeProfessor(idRM);
+            if (papel.equals("Professor")) {
+                long idAssoc = Long.parseLong(request.getParameter("idAssoc"));
+                CourseProfessor.removeCourseProfessor(idAssoc);
+                Professor.removeProfessor(idRM);
+            }
             User.removeUser(idRM);
             response.sendRedirect(request.getRequestURI());
         } catch (Exception e) {
@@ -104,6 +110,13 @@
                             <form>
                                 <input type="hidden" name="idRM" value="<%= u.getId() %>"/>
                                 <input type="hidden" name="papel" value="<%= u.getTipoDeUsuario() %>"/>
+                                <% if (u.getTipoDeUsuario().equals("Professor")) { %>
+                                    <% for (Professor p: Professor.getProfessors()) { %>
+                                        <% if (p.getIdUser().equals(u.getId())) { %>
+                                            <input type="hidden" name="idAssoc" value="<%= p.getId() %>"/>
+                                        <% } %>
+                                    <% } %>
+                                <% } %>
                                 <input type="submit" name="formDeleteUser" value="Remover" class="genric-btn danger"/>
                             </form>
                         </td>

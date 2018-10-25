@@ -67,4 +67,12 @@ public class CourseProfessor {
 
         AzureDatabaseConnector.execute(SQL, parameters);
     }
+
+    public static void removeCourseProfessor(Long id) throws Exception {
+        String SQL = "DELETE FROM teste.CourseProfessor WHERE id_professor = ?";
+
+        Object parameters[] = {id};
+
+        AzureDatabaseConnector.execute(SQL, parameters);
+    }
 }
