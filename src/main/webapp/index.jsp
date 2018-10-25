@@ -6,6 +6,7 @@
 <html lang="pt-br" class="no-js">
 <head>
 	<!-- Meta, Font e CSS -->
+	<link rel="shortcut icon" href="/imgens/icons_login/favicon.ico">
 	<%@include file="WEB-INF/jspf/head.jspf"%>
 	<!-- Site Title -->
 	<title>Home - SETCC</title>
@@ -113,11 +114,11 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="single-feature">
 					<a href="#" class="title d-flex flex-row">
-						<span class="lnr lnr-bubble"></span>
-						<h4>Positive Reviews</h4>
+						<span class="lnr lnr-laptop-phone"></span>
+						<h4>Saiba mais</h4>
 					</a>
 					<p>
-						Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+						Aqui você pode conhecer nossos desenvolvedores e os objetivos deste projeto.
 					</p>
 				</div>
 			</div>

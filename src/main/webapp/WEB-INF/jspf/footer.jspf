@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!-- start footer Area -->
-<footer class="footer-area section-gap">
+<footer class="footer-area section-gap background: url(../../img/footer-bg.png) center">
     <div class="container">
 
 
