@@ -42,7 +42,7 @@
                     <li class="menu-has-children"><a href="#">Projetos</a>
                         <ul>
                             <li><a href="<%=path%>/projectForm.jsp">Cadastrar</a></li>
-                            <li><a href="<%=path%>/#">Listar (Alterar/Desativar)</a></li>
+                            <li><a href="<%=path%>/projectList.jsp">Listar (Alterar/Desativar)</a></li>
                         </ul>
                     </li>
                     <%}%>
